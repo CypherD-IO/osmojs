@@ -1,5 +1,5 @@
 {
-  "name": "osmojs",
+  "name": "@cypherd-io/osmojs",
   "version": "0.10.15",
   "description": "Typescript Protobuf Messages for Osmosis",
   "author": "Dan Lynch <pyramation@gmail.com>",
@@ -97,5 +97,5 @@
     "long": "^5.2.0",
     "protobufjs": "^6.11.3"
   },
-  "gitHead": "015b623b1a8159328f732e6633b3124511cb9fad"
+  "gitHead": "fc2aacc53a1ebbca573a6c35f5741450dba3c8d2"
 }
