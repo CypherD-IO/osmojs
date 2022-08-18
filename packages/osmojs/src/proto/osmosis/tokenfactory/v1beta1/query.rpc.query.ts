@@ -1,6 +1,6 @@
 import { Params } from "./params";
 import { DenomAuthorityMetadata } from "./authorityMetadata";
-import { Rpc } from "@osmonauts/helpers";
+import { Rpc } from "@cypherd-io/osmonauts-helpers";
 import * as _m0 from "protobufjs/minimal";
 import { QueryParamsRequest, QueryParamsResponse, QueryDenomAuthorityMetadataRequest, QueryDenomAuthorityMetadataResponse, QueryDenomsFromCreatorRequest, QueryDenomsFromCreatorResponse } from "./query";
 

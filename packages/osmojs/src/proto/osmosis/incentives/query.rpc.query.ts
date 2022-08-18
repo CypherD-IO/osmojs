@@ -2,7 +2,7 @@ import { PageRequest, PageResponse } from "../../cosmos/base/query/v1beta1/pagin
 import { Coin } from "../../cosmos/base/v1beta1/coin";
 import { Gauge } from "./gauge";
 import { Duration } from "../../google/protobuf/duration";
-import { Rpc } from "@osmonauts/helpers";
+import { Rpc } from "@cypherd-io/osmonauts-helpers";
 import * as _m0 from "protobufjs/minimal";
 import { ModuleToDistributeCoinsRequest, ModuleToDistributeCoinsResponse, ModuleDistributedCoinsRequest, ModuleDistributedCoinsResponse, GaugeByIDRequest, GaugeByIDResponse, GaugesRequest, GaugesResponse, ActiveGaugesRequest, ActiveGaugesResponse, ActiveGaugesPerDenomRequest, ActiveGaugesPerDenomResponse, UpcomingGaugesRequest, UpcomingGaugesResponse, UpcomingGaugesPerDenomRequest, UpcomingGaugesPerDenomResponse, RewardsEstRequest, RewardsEstResponse, QueryLockableDurationsRequest, QueryLockableDurationsResponse } from "./query";
 

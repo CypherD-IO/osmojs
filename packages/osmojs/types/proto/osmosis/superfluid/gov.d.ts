@@ -1,6 +1,6 @@
 import { SuperfluidAsset } from "./superfluid";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial } from "@osmonauts/helpers";
+import { DeepPartial } from "@cypherd-io/osmonauts-helpers";
 /**
  * SetSuperfluidAssetsProposal is a gov Content type to update the superfluid
  * assets

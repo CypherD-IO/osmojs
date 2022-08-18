@@ -1,6 +1,6 @@
 import { Any } from "../../../google/protobuf/any";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial } from "@osmonauts/helpers";
+import { DeepPartial } from "@cypherd-io/osmonauts-helpers";
 
 /** GenesisState defines the evidence module's genesis state. */
 export interface GenesisState {
@@ -10,12 +10,15 @@ export interface GenesisState {
 
 function createBaseGenesisState(): GenesisState {
   return {
-    evidence: []
+    evidence: [],
   };
 }
 
 export const GenesisState = {
-  encode(message: GenesisState, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+  encode(
+    message: GenesisState,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
     for (const v of message.evidence) {
       Any.encode(v!, writer.uint32(10).fork()).ldelim();
     }
@@ -47,7 +50,9 @@ export const GenesisState = {
 
   fromJSON(object: any): GenesisState {
     return {
-      evidence: Array.isArray(object?.evidence) ? object.evidence.map((e: any) => Any.fromJSON(e)) : []
+      evidence: Array.isArray(object?.evidence)
+        ? object.evidence.map((e: any) => Any.fromJSON(e))
+        : [],
     };
   },
 
@@ -55,7 +60,9 @@ export const GenesisState = {
     const obj: any = {};
 
     if (message.evidence) {
-      obj.evidence = message.evidence.map(e => e ? Any.toJSON(e) : undefined);
+      obj.evidence = message.evidence.map((e) =>
+        e ? Any.toJSON(e) : undefined
+      );
     } else {
       obj.evidence = [];
     }
@@ -65,8 +72,7 @@ export const GenesisState = {
 
   fromPartial(object: DeepPartial<GenesisState>): GenesisState {
     const message = createBaseGenesisState();
-    message.evidence = object.evidence?.map(e => Any.fromPartial(e)) || [];
+    message.evidence = object.evidence?.map((e) => Any.fromPartial(e)) || [];
     return message;
-  }
-
+  },
 };

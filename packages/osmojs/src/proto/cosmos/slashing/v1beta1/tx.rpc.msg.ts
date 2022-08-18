@@ -1,4 +1,4 @@
-import { Rpc } from "@osmonauts/helpers";
+import { Rpc } from "@cypherd-io/osmonauts-helpers";
 import * as _m0 from "protobufjs/minimal";
 import { MsgUnjail, MsgUnjailResponse } from "./tx";
 
@@ -8,7 +8,6 @@ export interface Msg {
   /*Unjail defines a method for unjailing a jailed validator, thus returning
   them into the bonded validator set, so they can begin receiving provisions
   and rewards again.*/
-
 }
 export class MsgClientImpl implements Msg {
   private readonly rpc: Rpc;
@@ -20,8 +19,13 @@ export class MsgClientImpl implements Msg {
 
   unjail(request: MsgUnjail): Promise<MsgUnjailResponse> {
     const data = MsgUnjail.encode(request).finish();
-    const promise = this.rpc.request("cosmos.slashing.v1beta1.Msg", "Unjail", data);
-    return promise.then(data => MsgUnjailResponse.decode(new _m0.Reader(data)));
+    const promise = this.rpc.request(
+      "cosmos.slashing.v1beta1.Msg",
+      "Unjail",
+      data
+    );
+    return promise.then((data) =>
+      MsgUnjailResponse.decode(new _m0.Reader(data))
+    );
   }
-
 }

@@ -1,5 +1,10 @@
 import * as _m0 from "protobufjs/minimal";
-import { isSet, bytesFromBase64, base64FromBytes, DeepPartial } from "@osmonauts/helpers";
+import {
+  isSet,
+  bytesFromBase64,
+  base64FromBytes,
+  DeepPartial,
+} from "@cypherd-io/osmonauts-helpers";
 
 /** PubKey defines a secp256r1 ECDSA public key. */
 export interface PubKey {

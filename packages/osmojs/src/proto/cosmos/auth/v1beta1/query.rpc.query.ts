@@ -1,15 +1,30 @@
 import { PageRequest, PageResponse } from "../../base/query/v1beta1/pagination";
 import { Any } from "../../../google/protobuf/any";
 import { Params } from "./auth";
-import { Rpc } from "@osmonauts/helpers";
+import { Rpc } from "@cypherd-io/osmonauts-helpers";
 import * as _m0 from "protobufjs/minimal";
-import { QueryAccountsRequest, QueryAccountsResponse, QueryAccountRequest, QueryAccountResponse, QueryParamsRequest, QueryParamsResponse, QueryModuleAccountsRequest, QueryModuleAccountsResponse, Bech32PrefixRequest, Bech32PrefixResponse, AddressBytesToStringRequest, AddressBytesToStringResponse, AddressStringToBytesRequest, AddressStringToBytesResponse } from "./query";
+import {
+  QueryAccountsRequest,
+  QueryAccountsResponse,
+  QueryAccountRequest,
+  QueryAccountResponse,
+  QueryParamsRequest,
+  QueryParamsResponse,
+  QueryModuleAccountsRequest,
+  QueryModuleAccountsResponse,
+  Bech32PrefixRequest,
+  Bech32PrefixResponse,
+  AddressBytesToStringRequest,
+  AddressBytesToStringResponse,
+  AddressStringToBytesRequest,
+  AddressStringToBytesResponse,
+} from "./query";
 
 /** Query defines the RPC service */
 export interface Query {
   accounts(request: QueryAccountsRequest): Promise<QueryAccountsResponse>;
   /*Accounts returns all the existing accounts
-  
+
   Since: cosmos-sdk 0.43*/
 
   account(request: QueryAccountRequest): Promise<QueryAccountResponse>;
@@ -18,18 +33,23 @@ export interface Query {
   params(request: QueryParamsRequest): Promise<QueryParamsResponse>;
   /*Params queries all parameters.*/
 
-  moduleAccounts(request: QueryModuleAccountsRequest): Promise<QueryModuleAccountsResponse>;
+  moduleAccounts(
+    request: QueryModuleAccountsRequest
+  ): Promise<QueryModuleAccountsResponse>;
   /*ModuleAccounts returns all the existing module accounts.*/
 
   bech32Prefix(request: Bech32PrefixRequest): Promise<Bech32PrefixResponse>;
   /*Bech32 queries bech32Prefix*/
 
-  addressBytesToString(request: AddressBytesToStringRequest): Promise<AddressBytesToStringResponse>;
+  addressBytesToString(
+    request: AddressBytesToStringRequest
+  ): Promise<AddressBytesToStringResponse>;
   /*AddressBytesToString converts Account Address bytes to string*/
 
-  addressStringToBytes(request: AddressStringToBytesRequest): Promise<AddressStringToBytesResponse>;
+  addressStringToBytes(
+    request: AddressStringToBytesRequest
+  ): Promise<AddressStringToBytesResponse>;
   /*AddressStringToBytes converts Address string to bytes*/
-
 }
 export class QueryClientImpl implements Query {
   private readonly rpc: Rpc;

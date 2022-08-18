@@ -1,7 +1,7 @@
 import { QueryCondition } from "../lockup/lock";
 import { Coin } from "../../cosmos/base/v1beta1/coin";
 import * as _m0 from "protobufjs/minimal";
-import { Long, DeepPartial } from "@osmonauts/helpers";
+import { Long, DeepPartial } from "@cypherd-io/osmonauts-helpers";
 export interface MsgCreateGauge {
     /**
      * flag to show if it's perpetual or multi-epoch

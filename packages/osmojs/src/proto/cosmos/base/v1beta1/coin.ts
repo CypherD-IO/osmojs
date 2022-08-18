@@ -1,9 +1,9 @@
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial } from "@osmonauts/helpers";
+import { isSet, DeepPartial } from "@cypherd-io/osmonauts-helpers";
 
 /**
  * Coin defines a token with a denomination and an amount.
- * 
+ *
  * NOTE: The amount field is an Int which implements the custom method
  * signatures required by gogoproto.
  */
@@ -14,7 +14,7 @@ export interface Coin {
 
 /**
  * DecCoin defines a token with a denomination and a decimal amount.
- * 
+ *
  * NOTE: The amount field is an Dec which implements the custom method
  * signatures required by gogoproto.
  */

@@ -1,5 +1,5 @@
 import { Order, Counterparty } from "../../channel/v1/channel";
-import { Rpc } from "@osmonauts/helpers";
+import { Rpc } from "@cypherd-io/osmonauts-helpers";
 import * as _m0 from "protobufjs/minimal";
 import { QueryAppVersionRequest, QueryAppVersionResponse } from "./query";
 

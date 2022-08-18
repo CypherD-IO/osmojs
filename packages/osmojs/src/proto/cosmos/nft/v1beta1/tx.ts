@@ -1,5 +1,5 @@
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial } from "@osmonauts/helpers";
+import { isSet, DeepPartial } from "@cypherd-io/osmonauts-helpers";
 
 /** MsgSend represents a message to send a nft from one account to another account. */
 export interface MsgSend {
@@ -24,12 +24,15 @@ function createBaseMsgSend(): MsgSend {
     classId: "",
     id: "",
     sender: "",
-    receiver: ""
+    receiver: "",
   };
 }
 
 export const MsgSend = {
-  encode(message: MsgSend, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+  encode(
+    message: MsgSend,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
     if (message.classId !== "") {
       writer.uint32(10).string(message.classId);
     }
@@ -88,7 +91,7 @@ export const MsgSend = {
       classId: isSet(object.classId) ? String(object.classId) : "",
       id: isSet(object.id) ? String(object.id) : "",
       sender: isSet(object.sender) ? String(object.sender) : "",
-      receiver: isSet(object.receiver) ? String(object.receiver) : ""
+      receiver: isSet(object.receiver) ? String(object.receiver) : "",
     };
   },
 
@@ -108,8 +111,7 @@ export const MsgSend = {
     message.sender = object.sender ?? "";
     message.receiver = object.receiver ?? "";
     return message;
-  }
-
+  },
 };
 
 function createBaseMsgSendResponse(): MsgSendResponse {
@@ -117,7 +119,10 @@ function createBaseMsgSendResponse(): MsgSendResponse {
 }
 
 export const MsgSendResponse = {
-  encode(_: MsgSendResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+  encode(
+    _: MsgSendResponse,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
     return writer;
   },
 
@@ -151,6 +156,5 @@ export const MsgSendResponse = {
   fromPartial(_: DeepPartial<MsgSendResponse>): MsgSendResponse {
     const message = createBaseMsgSendResponse();
     return message;
-  }
-
+  },
 };

@@ -1,7 +1,7 @@
 import { Member, VoteOption } from "./types";
 import { Any } from "../../../google/protobuf/any";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial, Long } from "@osmonauts/helpers";
+import { DeepPartial, Long } from "@cypherd-io/osmonauts-helpers";
 /** Exec defines modes of execution of a proposal on creation or on new vote. */
 export declare enum Exec {
     /**

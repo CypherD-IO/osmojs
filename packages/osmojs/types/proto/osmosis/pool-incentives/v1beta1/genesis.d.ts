@@ -1,7 +1,7 @@
 import { Params, DistrInfo } from "./incentives";
 import { Duration } from "../../../google/protobuf/duration";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial } from "@osmonauts/helpers";
+import { DeepPartial } from "@cypherd-io/osmonauts-helpers";
 /** GenesisState defines the pool incentives module's genesis state. */
 export interface GenesisState {
     /** params defines all the paramaters of the module. */

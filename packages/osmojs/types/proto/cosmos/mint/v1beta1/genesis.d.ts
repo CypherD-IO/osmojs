@@ -1,6 +1,6 @@
 import { Minter, Params } from "./mint";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial } from "@osmonauts/helpers";
+import { DeepPartial } from "@cypherd-io/osmonauts-helpers";
 /** GenesisState defines the mint module's genesis state. */
 export interface GenesisState {
     /** minter is a space for holding current inflation information. */

@@ -1,6 +1,6 @@
 import { FeeToken } from "./feetoken";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial, Long } from "@osmonauts/helpers";
+import { DeepPartial, Long } from "@cypherd-io/osmonauts-helpers";
 export interface QueryFeeTokensRequest {
 }
 export interface QueryFeeTokensResponse {

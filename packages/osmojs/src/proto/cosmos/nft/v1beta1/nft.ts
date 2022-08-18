@@ -1,6 +1,6 @@
 import { Any } from "../../../google/protobuf/any";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial } from "@osmonauts/helpers";
+import { isSet, DeepPartial } from "@cypherd-io/osmonauts-helpers";
 
 /** Class defines the class of the nft type. */
 export interface Class {
@@ -52,7 +52,7 @@ function createBaseClass(): Class {
     description: "",
     uri: "",
     uriHash: "",
-    data: undefined
+    data: undefined,
   };
 }
 
@@ -143,7 +143,7 @@ export const Class = {
       description: isSet(object.description) ? String(object.description) : "",
       uri: isSet(object.uri) ? String(object.uri) : "",
       uriHash: isSet(object.uriHash) ? String(object.uriHash) : "",
-      data: isSet(object.data) ? Any.fromJSON(object.data) : undefined
+      data: isSet(object.data) ? Any.fromJSON(object.data) : undefined,
     };
   },
 
@@ -152,10 +152,12 @@ export const Class = {
     message.id !== undefined && (obj.id = message.id);
     message.name !== undefined && (obj.name = message.name);
     message.symbol !== undefined && (obj.symbol = message.symbol);
-    message.description !== undefined && (obj.description = message.description);
+    message.description !== undefined &&
+      (obj.description = message.description);
     message.uri !== undefined && (obj.uri = message.uri);
     message.uriHash !== undefined && (obj.uriHash = message.uriHash);
-    message.data !== undefined && (obj.data = message.data ? Any.toJSON(message.data) : undefined);
+    message.data !== undefined &&
+      (obj.data = message.data ? Any.toJSON(message.data) : undefined);
     return obj;
   },
 
@@ -167,10 +169,12 @@ export const Class = {
     message.description = object.description ?? "";
     message.uri = object.uri ?? "";
     message.uriHash = object.uriHash ?? "";
-    message.data = object.data !== undefined && object.data !== null ? Any.fromPartial(object.data) : undefined;
+    message.data =
+      object.data !== undefined && object.data !== null
+        ? Any.fromPartial(object.data)
+        : undefined;
     return message;
-  }
-
+  },
 };
 
 function createBaseNFT(): NFT {
@@ -179,7 +183,7 @@ function createBaseNFT(): NFT {
     id: "",
     uri: "",
     uriHash: "",
-    data: undefined
+    data: undefined,
   };
 }
 
@@ -252,7 +256,7 @@ export const NFT = {
       id: isSet(object.id) ? String(object.id) : "",
       uri: isSet(object.uri) ? String(object.uri) : "",
       uriHash: isSet(object.uriHash) ? String(object.uriHash) : "",
-      data: isSet(object.data) ? Any.fromJSON(object.data) : undefined
+      data: isSet(object.data) ? Any.fromJSON(object.data) : undefined,
     };
   },
 
@@ -262,7 +266,8 @@ export const NFT = {
     message.id !== undefined && (obj.id = message.id);
     message.uri !== undefined && (obj.uri = message.uri);
     message.uriHash !== undefined && (obj.uriHash = message.uriHash);
-    message.data !== undefined && (obj.data = message.data ? Any.toJSON(message.data) : undefined);
+    message.data !== undefined &&
+      (obj.data = message.data ? Any.toJSON(message.data) : undefined);
     return obj;
   },
 
@@ -272,8 +277,10 @@ export const NFT = {
     message.id = object.id ?? "";
     message.uri = object.uri ?? "";
     message.uriHash = object.uriHash ?? "";
-    message.data = object.data !== undefined && object.data !== null ? Any.fromPartial(object.data) : undefined;
+    message.data =
+      object.data !== undefined && object.data !== null
+        ? Any.fromPartial(object.data)
+        : undefined;
     return message;
-  }
-
+  },
 };

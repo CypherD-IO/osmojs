@@ -1,6 +1,6 @@
 import { Class, NFT } from "./nft";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial, isSet } from "@osmonauts/helpers";
+import { DeepPartial, isSet } from "@cypherd-io/osmonauts-helpers";
 
 /** GenesisState defines the nft module's genesis state. */
 export interface GenesisState {
@@ -21,12 +21,15 @@ export interface Entry {
 function createBaseGenesisState(): GenesisState {
   return {
     classes: [],
-    entries: []
+    entries: [],
   };
 }
 
 export const GenesisState = {
-  encode(message: GenesisState, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+  encode(
+    message: GenesisState,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
     for (const v of message.classes) {
       Class.encode(v!, writer.uint32(10).fork()).ldelim();
     }
@@ -66,8 +69,12 @@ export const GenesisState = {
 
   fromJSON(object: any): GenesisState {
     return {
-      classes: Array.isArray(object?.classes) ? object.classes.map((e: any) => Class.fromJSON(e)) : [],
-      entries: Array.isArray(object?.entries) ? object.entries.map((e: any) => Entry.fromJSON(e)) : []
+      classes: Array.isArray(object?.classes)
+        ? object.classes.map((e: any) => Class.fromJSON(e))
+        : [],
+      entries: Array.isArray(object?.entries)
+        ? object.entries.map((e: any) => Entry.fromJSON(e))
+        : [],
     };
   },
 
@@ -75,13 +82,17 @@ export const GenesisState = {
     const obj: any = {};
 
     if (message.classes) {
-      obj.classes = message.classes.map(e => e ? Class.toJSON(e) : undefined);
+      obj.classes = message.classes.map((e) =>
+        e ? Class.toJSON(e) : undefined
+      );
     } else {
       obj.classes = [];
     }
 
     if (message.entries) {
-      obj.entries = message.entries.map(e => e ? Entry.toJSON(e) : undefined);
+      obj.entries = message.entries.map((e) =>
+        e ? Entry.toJSON(e) : undefined
+      );
     } else {
       obj.entries = [];
     }
@@ -91,17 +102,16 @@ export const GenesisState = {
 
   fromPartial(object: DeepPartial<GenesisState>): GenesisState {
     const message = createBaseGenesisState();
-    message.classes = object.classes?.map(e => Class.fromPartial(e)) || [];
-    message.entries = object.entries?.map(e => Entry.fromPartial(e)) || [];
+    message.classes = object.classes?.map((e) => Class.fromPartial(e)) || [];
+    message.entries = object.entries?.map((e) => Entry.fromPartial(e)) || [];
     return message;
-  }
-
+  },
 };
 
 function createBaseEntry(): Entry {
   return {
     owner: "",
-    nfts: []
+    nfts: [],
   };
 }
 
@@ -147,7 +157,9 @@ export const Entry = {
   fromJSON(object: any): Entry {
     return {
       owner: isSet(object.owner) ? String(object.owner) : "",
-      nfts: Array.isArray(object?.nfts) ? object.nfts.map((e: any) => NFT.fromJSON(e)) : []
+      nfts: Array.isArray(object?.nfts)
+        ? object.nfts.map((e: any) => NFT.fromJSON(e))
+        : [],
     };
   },
 
@@ -156,7 +168,7 @@ export const Entry = {
     message.owner !== undefined && (obj.owner = message.owner);
 
     if (message.nfts) {
-      obj.nfts = message.nfts.map(e => e ? NFT.toJSON(e) : undefined);
+      obj.nfts = message.nfts.map((e) => (e ? NFT.toJSON(e) : undefined));
     } else {
       obj.nfts = [];
     }
@@ -167,8 +179,7 @@ export const Entry = {
   fromPartial(object: DeepPartial<Entry>): Entry {
     const message = createBaseEntry();
     message.owner = object.owner ?? "";
-    message.nfts = object.nfts?.map(e => NFT.fromPartial(e)) || [];
+    message.nfts = object.nfts?.map((e) => NFT.fromPartial(e)) || [];
     return message;
-  }
-
+  },
 };

@@ -1,7 +1,7 @@
 import { Coin } from "../../base/v1beta1/coin";
 import { Period } from "./vesting";
-import { AminoMsg } from "@cosmjs/amino";
-import { Long } from "@osmonauts/helpers";
+import { AminoMsg } from "@cosmjs-rn/amino";
+import { Long } from "@cypherd-io/osmonauts-helpers";
 import { MsgCreateVestingAccount, MsgCreatePermanentLockedAccount, MsgCreatePeriodicVestingAccount } from "./tx";
 export interface AminoMsgCreateVestingAccount extends AminoMsg {
   type: "cosmos-sdk/MsgCreateVestingAccount";

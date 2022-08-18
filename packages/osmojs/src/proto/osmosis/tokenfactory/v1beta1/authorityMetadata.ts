@@ -1,5 +1,5 @@
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial } from "@osmonauts/helpers";
+import { isSet, DeepPartial } from "@cypherd-io/osmonauts-helpers";
 
 /**
  * DenomAuthorityMetadata specifies metadata for addresses that have specific

@@ -1,6 +1,6 @@
 import { Duration } from "../../../google/protobuf/duration";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial, Long } from "@osmonauts/helpers";
+import { isSet, DeepPartial, Long } from "@cypherd-io/osmonauts-helpers";
 export interface Params {
   /**
    * minted_denom is the denomination of the coin expected to be minted by the

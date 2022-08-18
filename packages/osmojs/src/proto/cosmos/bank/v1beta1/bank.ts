@@ -1,6 +1,6 @@
 import { Coin } from "../../base/v1beta1/coin";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial } from "@osmonauts/helpers";
+import { isSet, DeepPartial } from "@cypherd-io/osmonauts-helpers";
 
 /** Params defines the parameters for the bank module. */
 export interface Params {
@@ -82,7 +82,7 @@ export interface Metadata {
 
   /**
    * name defines the name of the token (eg: Cosmos Atom)
-   * 
+   *
    * Since: cosmos-sdk 0.43
    */
   name: string;
@@ -90,14 +90,14 @@ export interface Metadata {
   /**
    * symbol is the token symbol usually shown on exchanges (eg: ATOM). This can
    * be the same as the display.
-   * 
+   *
    * Since: cosmos-sdk 0.43
    */
   symbol: string;
 
   /**
    * URI to a document (on or off-chain) that contains additional information. Optional.
-   * 
+   *
    * Since: cosmos-sdk 0.46
    */
   uri: string;
@@ -105,7 +105,7 @@ export interface Metadata {
   /**
    * URIHash is a sha256 hash of a document pointed by URI. It's used to verify that
    * the document didn't change. Optional.
-   * 
+   *
    * Since: cosmos-sdk 0.46
    */
   uriHash: string;

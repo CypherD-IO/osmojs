@@ -1,5 +1,5 @@
 import { PoolParams, PoolAsset } from "./balancerPool";
-import { Rpc } from "@osmonauts/helpers";
+import { Rpc } from "@cypherd-io/osmonauts-helpers";
 import * as _m0 from "protobufjs/minimal";
 import { MsgCreateBalancerPool, MsgCreateBalancerPoolResponse } from "./tx";
 

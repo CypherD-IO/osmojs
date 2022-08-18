@@ -1,6 +1,6 @@
 import { Coin } from "../../../cosmos/base/v1beta1/coin";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial } from "@osmonauts/helpers";
+import { DeepPartial } from "@cypherd-io/osmonauts-helpers";
 /**
  * MsgCreateDenom is the sdk.Msg type for allowing an account to create
  * a new denom. It requires a sender address and a subdenomination.

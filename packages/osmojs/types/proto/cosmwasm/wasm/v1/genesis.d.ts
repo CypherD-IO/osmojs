@@ -1,7 +1,7 @@
 import { MsgStoreCode, MsgInstantiateContract, MsgExecuteContract } from "./tx";
 import { Params, CodeInfo, ContractInfo, Model } from "./types";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial, Long } from "@osmonauts/helpers";
+import { DeepPartial, Long } from "@cypherd-io/osmonauts-helpers";
 /** GenesisState - genesis state of x/wasm */
 export interface GenesisState {
     params: Params;

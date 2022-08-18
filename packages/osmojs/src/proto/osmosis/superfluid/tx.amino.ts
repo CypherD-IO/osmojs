@@ -1,7 +1,13 @@
 import { Coin } from "../../cosmos/base/v1beta1/coin";
-import { AminoMsg } from "@cosmjs/amino";
-import { Long } from "@osmonauts/helpers";
-import { MsgSuperfluidDelegate, MsgSuperfluidUndelegate, MsgSuperfluidUnbondLock, MsgLockAndSuperfluidDelegate, MsgUnPoolWhitelistedPool } from "./tx";
+import { AminoMsg } from "@cosmjs-rn/amino";
+import { Long } from "@cypherd-io/osmonauts-helpers";
+import {
+  MsgSuperfluidDelegate,
+  MsgSuperfluidUndelegate,
+  MsgSuperfluidUnbondLock,
+  MsgLockAndSuperfluidDelegate,
+  MsgUnPoolWhitelistedPool,
+} from "./tx";
 export interface AminoMsgSuperfluidDelegate extends AminoMsg {
   type: "osmosis/superfluid-delegate";
   value: {
@@ -48,118 +54,118 @@ export const AminoConverter = {
     toAmino: ({
       sender,
       lockId,
-      valAddr
+      valAddr,
     }: MsgSuperfluidDelegate): AminoMsgSuperfluidDelegate["value"] => {
       return {
         sender,
         lock_id: lockId.toString(),
-        val_addr: valAddr
+        val_addr: valAddr,
       };
     },
     fromAmino: ({
       sender,
       lock_id,
-      val_addr
+      val_addr,
     }: AminoMsgSuperfluidDelegate["value"]): MsgSuperfluidDelegate => {
       return {
         sender,
         lockId: Long.fromString(lock_id),
-        valAddr: val_addr
+        valAddr: val_addr,
       };
-    }
+    },
   },
   "/osmosis.superfluid.MsgSuperfluidUndelegate": {
     aminoType: "osmosis/superfluid-undelegate",
     toAmino: ({
       sender,
-      lockId
+      lockId,
     }: MsgSuperfluidUndelegate): AminoMsgSuperfluidUndelegate["value"] => {
       return {
         sender,
-        lock_id: lockId.toString()
+        lock_id: lockId.toString(),
       };
     },
     fromAmino: ({
       sender,
-      lock_id
+      lock_id,
     }: AminoMsgSuperfluidUndelegate["value"]): MsgSuperfluidUndelegate => {
       return {
         sender,
-        lockId: Long.fromString(lock_id)
+        lockId: Long.fromString(lock_id),
       };
-    }
+    },
   },
   "/osmosis.superfluid.MsgSuperfluidUnbondLock": {
     aminoType: "osmosis/superfluid-unbond-lock",
     toAmino: ({
       sender,
-      lockId
+      lockId,
     }: MsgSuperfluidUnbondLock): AminoMsgSuperfluidUnbondLock["value"] => {
       return {
         sender,
-        lock_id: lockId.toString()
+        lock_id: lockId.toString(),
       };
     },
     fromAmino: ({
       sender,
-      lock_id
+      lock_id,
     }: AminoMsgSuperfluidUnbondLock["value"]): MsgSuperfluidUnbondLock => {
       return {
         sender,
-        lockId: Long.fromString(lock_id)
+        lockId: Long.fromString(lock_id),
       };
-    }
+    },
   },
   "/osmosis.superfluid.MsgLockAndSuperfluidDelegate": {
     aminoType: "osmosis/lock-and-superfluid-delegate",
     toAmino: ({
       sender,
       coins,
-      valAddr
+      valAddr,
     }: MsgLockAndSuperfluidDelegate): AminoMsgLockAndSuperfluidDelegate["value"] => {
       return {
         sender,
-        coins: coins.map(el0 => ({
+        coins: coins.map((el0) => ({
           denom: el0.denom,
-          amount: el0.amount
+          amount: el0.amount,
         })),
-        val_addr: valAddr
+        val_addr: valAddr,
       };
     },
     fromAmino: ({
       sender,
       coins,
-      val_addr
+      val_addr,
     }: AminoMsgLockAndSuperfluidDelegate["value"]): MsgLockAndSuperfluidDelegate => {
       return {
         sender,
-        coins: coins.map(el0 => ({
+        coins: coins.map((el0) => ({
           denom: el0.denom,
-          amount: el0.amount
+          amount: el0.amount,
         })),
-        valAddr: val_addr
+        valAddr: val_addr,
       };
-    }
+    },
   },
   "/osmosis.superfluid.MsgUnPoolWhitelistedPool": {
     aminoType: "osmosis/unpool-whitelisted-pool",
     toAmino: ({
       sender,
-      poolId
+      poolId,
     }: MsgUnPoolWhitelistedPool): AminoMsgUnPoolWhitelistedPool["value"] => {
       return {
         sender,
-        pool_id: poolId.toString()
+        pool_id: poolId.toString(),
       };
     },
     fromAmino: ({
       sender,
-      pool_id
+      pool_id,
     }: AminoMsgUnPoolWhitelistedPool["value"]): MsgUnPoolWhitelistedPool => {
       return {
         sender,
-        poolId: Long.fromString(pool_id)
+        poolId: Long.fromString(pool_id),
       };
-    }
-  }
+    },
+  },
 };

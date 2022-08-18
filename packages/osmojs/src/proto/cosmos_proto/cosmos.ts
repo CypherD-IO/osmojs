@@ -1,5 +1,5 @@
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial } from "@osmonauts/helpers";
+import { isSet, DeepPartial } from "@cypherd-io/osmonauts-helpers";
 export enum ScalarType {
   SCALAR_TYPE_UNSPECIFIED = 0,
   SCALAR_TYPE_STRING = 1,
@@ -99,12 +99,15 @@ export interface ScalarDescriptor {
 function createBaseInterfaceDescriptor(): InterfaceDescriptor {
   return {
     name: "",
-    description: ""
+    description: "",
   };
 }
 
 export const InterfaceDescriptor = {
-  encode(message: InterfaceDescriptor, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+  encode(
+    message: InterfaceDescriptor,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
     }
@@ -145,14 +148,15 @@ export const InterfaceDescriptor = {
   fromJSON(object: any): InterfaceDescriptor {
     return {
       name: isSet(object.name) ? String(object.name) : "",
-      description: isSet(object.description) ? String(object.description) : ""
+      description: isSet(object.description) ? String(object.description) : "",
     };
   },
 
   toJSON(message: InterfaceDescriptor): unknown {
     const obj: any = {};
     message.name !== undefined && (obj.name = message.name);
-    message.description !== undefined && (obj.description = message.description);
+    message.description !== undefined &&
+      (obj.description = message.description);
     return obj;
   },
 
@@ -161,20 +165,22 @@ export const InterfaceDescriptor = {
     message.name = object.name ?? "";
     message.description = object.description ?? "";
     return message;
-  }
-
+  },
 };
 
 function createBaseScalarDescriptor(): ScalarDescriptor {
   return {
     name: "",
     description: "",
-    fieldType: []
+    fieldType: [],
   };
 }
 
 export const ScalarDescriptor = {
-  encode(message: ScalarDescriptor, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+  encode(
+    message: ScalarDescriptor,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
     }
@@ -215,10 +221,10 @@ export const ScalarDescriptor = {
             const end2 = reader.uint32() + reader.pos;
 
             while (reader.pos < end2) {
-              message.fieldType.push((reader.int32() as any));
+              message.fieldType.push(reader.int32() as any);
             }
           } else {
-            message.fieldType.push((reader.int32() as any));
+            message.fieldType.push(reader.int32() as any);
           }
 
           break;
@@ -236,17 +242,20 @@ export const ScalarDescriptor = {
     return {
       name: isSet(object.name) ? String(object.name) : "",
       description: isSet(object.description) ? String(object.description) : "",
-      fieldType: Array.isArray(object?.fieldType) ? object.fieldType.map((e: any) => scalarTypeFromJSON(e)) : []
+      fieldType: Array.isArray(object?.fieldType)
+        ? object.fieldType.map((e: any) => scalarTypeFromJSON(e))
+        : [],
     };
   },
 
   toJSON(message: ScalarDescriptor): unknown {
     const obj: any = {};
     message.name !== undefined && (obj.name = message.name);
-    message.description !== undefined && (obj.description = message.description);
+    message.description !== undefined &&
+      (obj.description = message.description);
 
     if (message.fieldType) {
-      obj.fieldType = message.fieldType.map(e => scalarTypeToJSON(e));
+      obj.fieldType = message.fieldType.map((e) => scalarTypeToJSON(e));
     } else {
       obj.fieldType = [];
     }
@@ -258,8 +267,7 @@ export const ScalarDescriptor = {
     const message = createBaseScalarDescriptor();
     message.name = object.name ?? "";
     message.description = object.description ?? "";
-    message.fieldType = object.fieldType?.map(e => e) || [];
+    message.fieldType = object.fieldType?.map((e) => e) || [];
     return message;
-  }
-
+  },
 };

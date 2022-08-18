@@ -1,11 +1,15 @@
-import { Rpc } from "@osmonauts/helpers";
+import { Rpc } from "@cypherd-io/osmonauts-helpers";
 import { MsgCreateBalancerPool, MsgCreateBalancerPoolResponse } from "./tx";
 /** Msg defines the RPC service */
 export interface Msg {
-    createBalancerPool(request: MsgCreateBalancerPool): Promise<MsgCreateBalancerPoolResponse>;
+  createBalancerPool(
+    request: MsgCreateBalancerPool
+  ): Promise<MsgCreateBalancerPoolResponse>;
 }
 export declare class MsgClientImpl implements Msg {
-    private readonly rpc;
-    constructor(rpc: Rpc);
-    createBalancerPool(request: MsgCreateBalancerPool): Promise<MsgCreateBalancerPoolResponse>;
+  private readonly rpc;
+  constructor(rpc: Rpc);
+  createBalancerPool(
+    request: MsgCreateBalancerPool
+  ): Promise<MsgCreateBalancerPoolResponse>;
 }

@@ -4,7 +4,14 @@ import { Any } from "../../../google/protobuf/any";
 import { Duration } from "../../../google/protobuf/duration";
 import { Coin } from "../../base/v1beta1/coin";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial, toTimestamp, fromTimestamp, fromJsonTimestamp, Long } from "@osmonauts/helpers";
+import {
+  isSet,
+  DeepPartial,
+  toTimestamp,
+  fromTimestamp,
+  fromJsonTimestamp,
+  Long,
+} from "@cypherd-io/osmonauts-helpers";
 
 /** BondStatus is the status of a validator. */
 export enum BondStatus {

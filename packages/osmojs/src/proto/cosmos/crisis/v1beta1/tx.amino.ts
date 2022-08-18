@@ -1,4 +1,4 @@
-import { AminoMsg } from "@cosmjs/amino";
+import { AminoMsg } from "@cosmjs-rn/amino";
 import { MsgVerifyInvariant } from "./tx";
 export interface AminoMsgVerifyInvariant extends AminoMsg {
   type: "cosmos-sdk/MsgVerifyInvariant";
@@ -14,24 +14,24 @@ export const AminoConverter = {
     toAmino: ({
       sender,
       invariantModuleName,
-      invariantRoute
+      invariantRoute,
     }: MsgVerifyInvariant): AminoMsgVerifyInvariant["value"] => {
       return {
         sender,
         invariant_module_name: invariantModuleName,
-        invariant_route: invariantRoute
+        invariant_route: invariantRoute,
       };
     },
     fromAmino: ({
       sender,
       invariant_module_name,
-      invariant_route
+      invariant_route,
     }: AminoMsgVerifyInvariant["value"]): MsgVerifyInvariant => {
       return {
         sender,
         invariantModuleName: invariant_module_name,
-        invariantRoute: invariant_route
+        invariantRoute: invariant_route,
       };
-    }
-  }
+    },
+  },
 };

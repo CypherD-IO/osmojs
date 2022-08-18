@@ -1,7 +1,7 @@
 import { Params } from "./auth";
 import { Any } from "../../../google/protobuf/any";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial } from "@osmonauts/helpers";
+import { DeepPartial } from "@cypherd-io/osmonauts-helpers";
 /** GenesisState defines the auth module's genesis state. */
 export interface GenesisState {
     /** params defines all the paramaters of the module. */

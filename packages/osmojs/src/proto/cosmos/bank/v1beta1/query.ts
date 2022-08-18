@@ -2,7 +2,7 @@ import { PageRequest, PageResponse } from "../../base/query/v1beta1/pagination";
 import { Coin } from "../../base/v1beta1/coin";
 import { Params, Metadata } from "./bank";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial } from "@osmonauts/helpers";
+import { isSet, DeepPartial } from "@cypherd-io/osmonauts-helpers";
 
 /** QueryBalanceRequest is the request type for the Query/Balance RPC method. */
 export interface QueryBalanceRequest {
@@ -71,7 +71,7 @@ export interface QuerySpendableBalancesResponse {
 export interface QueryTotalSupplyRequest {
   /**
    * pagination defines an optional pagination for the request.
-   * 
+   *
    * Since: cosmos-sdk 0.43
    */
   pagination: PageRequest;
@@ -87,7 +87,7 @@ export interface QueryTotalSupplyResponse {
 
   /**
    * pagination defines the pagination in the response.
-   * 
+   *
    * Since: cosmos-sdk 0.43
    */
   pagination: PageResponse;

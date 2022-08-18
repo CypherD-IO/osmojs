@@ -1,5 +1,5 @@
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial } from "@osmonauts/helpers";
+import { isSet, DeepPartial } from "@cypherd-io/osmonauts-helpers";
 
 /** ModuleDescriptor describes an app module. */
 export interface ModuleDescriptor {
@@ -44,30 +44,30 @@ export interface PackageReference {
    * The revision of a package can be thought of as the minor version of a
    * package which has additional backwards compatible definitions that weren't
    * present in a previous version.
-   * 
+   *
    * A package should indicate its revision with a source code comment
    * above the package declaration in one of its fields containing the
    * test "Revision N" where N is an integer revision. All packages start
    * at revision 0 the first time they are released in a module.
-   * 
+   *
    * When a new version of a module is released and items are added to existing
    * .proto files, these definitions should contain comments of the form
    * "Since Revision N" where N is an integer revision.
-   * 
+   *
    * When the module runtime starts up, it will check the pinned proto
    * image and panic if there are runtime protobuf definitions that are not
    * in the pinned descriptor which do not have
    * a "Since Revision N" comment or have a "Since Revision N" comment where
    * N is <= to the revision specified here. This indicates that the protobuf
    * files have been updated, but the pinned file descriptor hasn't.
-   * 
+   *
    * If there are items in the pinned file descriptor with a revision
    * greater than the value indicated here, this will also cause a panic
    * as it may mean that the pinned descriptor for a legacy module has been
    * improperly updated or that there is some other versioning discrepancy.
    * Runtime protobuf definitions will also be checked for compatibility
    * with pinned file descriptors to make sure there are no incompatible changes.
-   * 
+   *
    * This behavior ensures that:
    * * pinned proto images are up-to-date
    * * protobuf files are carefully annotated with revision comments which
@@ -93,12 +93,15 @@ function createBaseModuleDescriptor(): ModuleDescriptor {
   return {
     goImport: "",
     usePackage: [],
-    canMigrateFrom: []
+    canMigrateFrom: [],
   };
 }
 
 export const ModuleDescriptor = {
-  encode(message: ModuleDescriptor, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+  encode(
+    message: ModuleDescriptor,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
     if (message.goImport !== "") {
       writer.uint32(10).string(message.goImport);
     }
@@ -128,11 +131,15 @@ export const ModuleDescriptor = {
           break;
 
         case 2:
-          message.usePackage.push(PackageReference.decode(reader, reader.uint32()));
+          message.usePackage.push(
+            PackageReference.decode(reader, reader.uint32())
+          );
           break;
 
         case 3:
-          message.canMigrateFrom.push(MigrateFromInfo.decode(reader, reader.uint32()));
+          message.canMigrateFrom.push(
+            MigrateFromInfo.decode(reader, reader.uint32())
+          );
           break;
 
         default:
@@ -147,8 +154,12 @@ export const ModuleDescriptor = {
   fromJSON(object: any): ModuleDescriptor {
     return {
       goImport: isSet(object.goImport) ? String(object.goImport) : "",
-      usePackage: Array.isArray(object?.usePackage) ? object.usePackage.map((e: any) => PackageReference.fromJSON(e)) : [],
-      canMigrateFrom: Array.isArray(object?.canMigrateFrom) ? object.canMigrateFrom.map((e: any) => MigrateFromInfo.fromJSON(e)) : []
+      usePackage: Array.isArray(object?.usePackage)
+        ? object.usePackage.map((e: any) => PackageReference.fromJSON(e))
+        : [],
+      canMigrateFrom: Array.isArray(object?.canMigrateFrom)
+        ? object.canMigrateFrom.map((e: any) => MigrateFromInfo.fromJSON(e))
+        : [],
     };
   },
 
@@ -157,13 +168,17 @@ export const ModuleDescriptor = {
     message.goImport !== undefined && (obj.goImport = message.goImport);
 
     if (message.usePackage) {
-      obj.usePackage = message.usePackage.map(e => e ? PackageReference.toJSON(e) : undefined);
+      obj.usePackage = message.usePackage.map((e) =>
+        e ? PackageReference.toJSON(e) : undefined
+      );
     } else {
       obj.usePackage = [];
     }
 
     if (message.canMigrateFrom) {
-      obj.canMigrateFrom = message.canMigrateFrom.map(e => e ? MigrateFromInfo.toJSON(e) : undefined);
+      obj.canMigrateFrom = message.canMigrateFrom.map((e) =>
+        e ? MigrateFromInfo.toJSON(e) : undefined
+      );
     } else {
       obj.canMigrateFrom = [];
     }
@@ -174,22 +189,26 @@ export const ModuleDescriptor = {
   fromPartial(object: DeepPartial<ModuleDescriptor>): ModuleDescriptor {
     const message = createBaseModuleDescriptor();
     message.goImport = object.goImport ?? "";
-    message.usePackage = object.usePackage?.map(e => PackageReference.fromPartial(e)) || [];
-    message.canMigrateFrom = object.canMigrateFrom?.map(e => MigrateFromInfo.fromPartial(e)) || [];
+    message.usePackage =
+      object.usePackage?.map((e) => PackageReference.fromPartial(e)) || [];
+    message.canMigrateFrom =
+      object.canMigrateFrom?.map((e) => MigrateFromInfo.fromPartial(e)) || [];
     return message;
-  }
-
+  },
 };
 
 function createBasePackageReference(): PackageReference {
   return {
     name: "",
-    revision: 0
+    revision: 0,
   };
 }
 
 export const PackageReference = {
-  encode(message: PackageReference, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+  encode(
+    message: PackageReference,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
     }
@@ -230,14 +249,15 @@ export const PackageReference = {
   fromJSON(object: any): PackageReference {
     return {
       name: isSet(object.name) ? String(object.name) : "",
-      revision: isSet(object.revision) ? Number(object.revision) : 0
+      revision: isSet(object.revision) ? Number(object.revision) : 0,
     };
   },
 
   toJSON(message: PackageReference): unknown {
     const obj: any = {};
     message.name !== undefined && (obj.name = message.name);
-    message.revision !== undefined && (obj.revision = Math.round(message.revision));
+    message.revision !== undefined &&
+      (obj.revision = Math.round(message.revision));
     return obj;
   },
 
@@ -246,18 +266,20 @@ export const PackageReference = {
     message.name = object.name ?? "";
     message.revision = object.revision ?? 0;
     return message;
-  }
-
+  },
 };
 
 function createBaseMigrateFromInfo(): MigrateFromInfo {
   return {
-    module: ""
+    module: "",
   };
 }
 
 export const MigrateFromInfo = {
-  encode(message: MigrateFromInfo, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+  encode(
+    message: MigrateFromInfo,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
     if (message.module !== "") {
       writer.uint32(10).string(message.module);
     }
@@ -289,7 +311,7 @@ export const MigrateFromInfo = {
 
   fromJSON(object: any): MigrateFromInfo {
     return {
-      module: isSet(object.module) ? String(object.module) : ""
+      module: isSet(object.module) ? String(object.module) : "",
     };
   },
 
@@ -303,6 +325,5 @@ export const MigrateFromInfo = {
     const message = createBaseMigrateFromInfo();
     message.module = object.module ?? "";
     return message;
-  }
-
+  },
 };

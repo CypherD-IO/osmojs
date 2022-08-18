@@ -2,7 +2,7 @@ import { Any } from "../../../google/protobuf/any";
 import { Coin } from "../../base/v1beta1/coin";
 import { VoteOption, WeightedVoteOption, voteOptionFromJSON, voteOptionToJSON } from "./gov";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial, Long } from "@osmonauts/helpers";
+import { isSet, DeepPartial, Long } from "@cypherd-io/osmonauts-helpers";
 
 /**
  * MsgSubmitProposal defines an sdk.Msg type that supports submitting arbitrary
@@ -31,7 +31,7 @@ export interface MsgVoteResponse {}
 
 /**
  * MsgVoteWeighted defines a message to cast a vote.
- * 
+ *
  * Since: cosmos-sdk 0.43
  */
 export interface MsgVoteWeighted {
@@ -42,7 +42,7 @@ export interface MsgVoteWeighted {
 
 /**
  * MsgVoteWeightedResponse defines the Msg/VoteWeighted response type.
- * 
+ *
  * Since: cosmos-sdk 0.43
  */
 export interface MsgVoteWeightedResponse {}

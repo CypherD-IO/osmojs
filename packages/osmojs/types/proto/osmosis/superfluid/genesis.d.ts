@@ -1,7 +1,7 @@
 import { Params } from "./params";
 import { SuperfluidAsset, OsmoEquivalentMultiplierRecord, SuperfluidIntermediaryAccount, LockIdIntermediaryAccountConnection } from "./superfluid";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial } from "@osmonauts/helpers";
+import { DeepPartial } from "@cypherd-io/osmonauts-helpers";
 /** GenesisState defines the module's genesis state. */
 export interface GenesisState {
     params: Params;

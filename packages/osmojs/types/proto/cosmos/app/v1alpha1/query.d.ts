@@ -1,6 +1,6 @@
 import { Config } from "./config";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial } from "@osmonauts/helpers";
+import { DeepPartial } from "@cypherd-io/osmonauts-helpers";
 /** QueryConfigRequest is the Query/Config request type. */
 export interface QueryConfigRequest {
 }

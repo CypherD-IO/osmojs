@@ -1,5 +1,5 @@
 import * as _m0 from "protobufjs/minimal";
-import { Long, DeepPartial } from "@osmonauts/helpers";
+import { Long, DeepPartial } from "@cypherd-io/osmonauts-helpers";
 export interface BitArray {
     bits: Long;
     elems: Long[];

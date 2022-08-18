@@ -3,9 +3,7 @@ import { TextProposal, VoteOption } from "../../../../src/proto/cosmos/gov/v1bet
 import { MsgDeposit, MsgSubmitProposal, MsgVote } from "../../../../src/proto/cosmos/gov/v1beta1/tx";
 import Long from "long";
 
-import {
-  AminoTypes,
-} from '@cosmjs/stargate';
+import { AminoTypes } from "@cosmjs-rn/stargate";
 
 import {
   AminoMsgDeposit,

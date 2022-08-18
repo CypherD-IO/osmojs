@@ -1,6 +1,6 @@
 import { FeeToken } from "./feetoken";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial } from "@osmonauts/helpers";
+import { isSet, DeepPartial } from "@cypherd-io/osmonauts-helpers";
 
 /**
  * UpdateFeeTokenProposal is a gov Content type for adding a new whitelisted fee

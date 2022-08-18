@@ -92,7 +92,7 @@
     "@cosmjs-rn/proto-signing": "0.27.1",
     "@cosmjs-rn/stargate": "0.27.1",
     "@cosmjs-rn/tendermint-rpc": "0.27.1",
-    "@osmonauts/helpers": "^0.4.0",
+    "@cypherd-io/osmonauts-helpers": "0.4.1",
     "@osmonauts/lcd": "^0.3.10",
     "long": "^5.2.0",
     "protobufjs": "^6.11.3"

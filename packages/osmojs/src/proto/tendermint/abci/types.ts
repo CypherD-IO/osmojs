@@ -4,7 +4,16 @@ import { ProofOps } from "../crypto/proof";
 import { EvidenceParams, ValidatorParams, VersionParams } from "../types/params";
 import { PublicKey } from "../crypto/keys";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial, Long, toTimestamp, fromTimestamp, fromJsonTimestamp, bytesFromBase64, base64FromBytes } from "@osmonauts/helpers";
+import {
+  isSet,
+  DeepPartial,
+  Long,
+  toTimestamp,
+  fromTimestamp,
+  fromJsonTimestamp,
+  bytesFromBase64,
+  base64FromBytes,
+} from "@cypherd-io/osmonauts-helpers";
 export enum CheckTxType {
   NEW = 0,
   RECHECK = 1,
@@ -488,7 +497,7 @@ export interface EventAttribute {
 
 /**
  * TxResult contains results of executing the transaction.
- * 
+ *
  * One usage is indexing transaction results.
  */
 export interface TxResult {

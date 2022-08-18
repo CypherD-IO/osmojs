@@ -1412,6 +1412,24 @@
     "@cosmjs-rn/math" "0.27.1"
     "@cosmjs-rn/utils" "0.27.1"
 
+"@cosmjs-rn/cosmwasm-stargate@0.27.1":
+  "integrity" "sha512-dQbf0ZKlRCFR6sqqVQY9oNeRhh8H41NV9byNxOEbU1nboQUA01T3bmhyMFXskU/jugHxMuf9zEr75DMHcHmkRA=="
+  "resolved" "https://registry.npmjs.org/@cosmjs-rn/cosmwasm-stargate/-/cosmwasm-stargate-0.27.1.tgz"
+  "version" "0.27.1"
+  dependencies:
+    "@cosmjs-rn/amino" "0.27.1"
+    "@cosmjs-rn/crypto" "0.27.1"
+    "@cosmjs-rn/encoding" "0.27.1"
+    "@cosmjs-rn/math" "0.27.1"
+    "@cosmjs-rn/proto-signing" "0.27.1"
+    "@cosmjs-rn/stargate" "0.27.1"
+    "@cosmjs-rn/tendermint-rpc" "0.27.1"
+    "@cosmjs-rn/utils" "0.27.1"
+    "cosmjs-types" "^0.4.0"
+    "long" "^4.0.0"
+    "pako" "^2.0.2"
+    "protobufjs" "~6.10.2"
+
 "@cosmjs-rn/crypto@0.27.1":
   "integrity" "sha512-sLbcsCi1DaRFsYHWodYs59Qof39G3Tyv2CUeDX2pbRMFuEOjL0aTgVHZU6rrMfqqwQmQBAEzRxbSOaLPlznv3g=="
   "resolved" "https://registry.npmjs.org/@cosmjs-rn/crypto/-/crypto-0.27.1.tgz"
@@ -1665,6 +1683,35 @@
     "parse-package-name" "1.0.0"
     "shelljs" "0.8.5"
     "wasm-ast-types" "^0.7.0"
+
+"@cypherd-io/osmojs@file:/Users/sedhu/work/cypherd/repos/osmojs/packages/osmojs":
+  "resolved" "file:packages/osmojs"
+  "version" "0.10.17"
+  dependencies:
+    "@babel/runtime" "^7.18.9"
+    "@cosmjs-rn/amino" "0.27.1"
+    "@cosmjs-rn/proto-signing" "0.27.1"
+    "@cosmjs-rn/stargate" "0.27.1"
+    "@cosmjs-rn/tendermint-rpc" "0.27.1"
+    "@osmonauts/helpers" "^0.4.0"
+    "@osmonauts/lcd" "^0.3.10"
+    "long" "^5.2.0"
+    "protobufjs" "^6.11.3"
+
+"@cypherd-io/osmonauts-helpers@0.4.1":
+  "integrity" "sha512-NJytFmqQ/TlyjUqSSU6KLDHfoH2VPlyQcbKLl1L6sS3z96eNjcsWtWiCsHpnh96M2KNmjzm7xBHt5e4OMsVpEA=="
+  "resolved" "https://npm.pkg.github.com/download/@cypherd-io/osmonauts-helpers/0.4.1/24538482caa02dcc7d6f1388abfb32e9436fe06d5d087564578653869bc2171f"
+  "version" "0.4.1"
+  dependencies:
+    "@babel/runtime" "^7.18.9"
+    "@cosmjs-rn/amino" "0.27.1"
+    "@cosmjs-rn/cosmwasm-stargate" "0.27.1"
+    "@cosmjs-rn/crypto" "0.27.1"
+    "@cosmjs-rn/proto-signing" "0.27.1"
+    "@cosmjs-rn/stargate" "0.27.1"
+    "cosmjs-types" "0.5.0"
+    "long" "^5.2.0"
+    "protobufjs" "^6.11.3"
 
 "@eslint/eslintrc@^1.3.0":
   "integrity" "sha512-UWW0TMTmk2d7hLcWD1/e2g5HDM/HQ3csaLSqXCfqwh4uNDuNqlaKWXmEsL4Cs41Z0KnILNvwbHAah3C2yt06kw=="
@@ -2928,20 +2975,6 @@
     "@osmonauts/types" "^0.7.0"
     "@osmonauts/utils" "^0.3.11"
     "case" "1.6.3"
-
-"@osmonauts/helpers@^0.4.0":
-  "integrity" "sha512-i66/pjyK6aixILUboTJ5fktHnJ7hIFrx2yNAXsAHnIxlnHT+2qkWnb9mAGR9OqX0WHfgggJKcDzyHchLG7ZiZw=="
-  "resolved" "https://registry.npmjs.org/@osmonauts/helpers/-/helpers-0.4.0.tgz"
-  "version" "0.4.0"
-  dependencies:
-    "@babel/runtime" "^7.18.3"
-    "@cosmjs/amino" "0.28.11"
-    "@cosmjs/crypto" "0.28.11"
-    "@cosmjs/proto-signing" "0.28.11"
-    "@cosmjs/stargate" "0.28.11"
-    "cosmjs-types" "0.5.0"
-    "long" "^5.2.0"
-    "protobufjs" "^6.11.3"
 
 "@osmonauts/lcd@^0.3.10":
   "integrity" "sha512-4FKUhhxiD1UzplpPIHcxeKj8GLwIJt8O+nYGYLXmk/vJCdF5/HYDW9CXbxZo1pFGas1Jw9JUzxlg8WLuAaSkHg=="
@@ -7484,20 +7517,6 @@
     "os-homedir" "^1.0.0"
     "os-tmpdir" "^1.0.0"
 
-"osmojs@file:/Users/sedhu/work/cypherd/repos/osmojs/packages/osmojs":
-  "resolved" "file:packages/osmojs"
-  "version" "0.10.13"
-  dependencies:
-    "@babel/runtime" "^7.18.9"
-    "@cosmjs-rn/amino" "0.27.1"
-    "@cosmjs-rn/proto-signing" "0.27.1"
-    "@cosmjs-rn/stargate" "0.27.1"
-    "@cosmjs-rn/tendermint-rpc" "0.27.1"
-    "@osmonauts/helpers" "^0.4.0"
-    "@osmonauts/lcd" "^0.3.10"
-    "long" "^5.2.0"
-    "protobufjs" "^6.11.3"
-
 "p-finally@^1.0.0":
   "integrity" "sha512-LICb2p9CB7FS+0eR1oqWnHhp0FljGLZCWBE9aix0Uye9W8LTQPwMTYVGWQWIw9RdQiDg4+epXQODwIYJtSJaow=="
   "resolved" "https://registry.npmjs.org/p-finally/-/p-finally-1.0.0.tgz"
@@ -7637,6 +7656,11 @@
     "rimraf" "^3.0.2"
     "ssri" "^8.0.1"
     "tar" "^6.1.0"
+
+"pako@^2.0.2":
+  "integrity" "sha512-v8tweI900AUkZN6heMU/4Uy4cXRc2AYNRggVmTR+dEncawDJgCdLMximOVA2p4qO57WMynangsfGRb5WD6L1Bg=="
+  "resolved" "https://registry.npmjs.org/pako/-/pako-2.0.4.tgz"
+  "version" "2.0.4"
 
 "parent-module@^1.0.0":
   "integrity" "sha512-GQ2EWRpQV8/o+Aw8YqtfZZPfNRWZYkbidE9k5rpl/hC3vtHHBfGm2Ifi6qWV+coDGkrUKZAxE3Lot5kcsRlh+g=="

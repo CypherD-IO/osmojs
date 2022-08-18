@@ -1,8 +1,8 @@
 import { QueryCondition, lockQueryTypeFromJSON } from "../lockup/lock";
 import { Coin } from "../../cosmos/base/v1beta1/coin";
 import { Timestamp } from "../../google/protobuf/timestamp";
-import { AminoMsg } from "@cosmjs/amino";
-import { Long } from "@osmonauts/helpers";
+import { AminoMsg } from "@cosmjs-rn/amino";
+import { Long } from "@cypherd-io/osmonauts-helpers";
 import { Duration } from "../../google/protobuf/duration";
 import { MsgCreateGauge, MsgAddToGauge } from "./tx";
 export interface AminoMsgCreateGauge extends AminoMsg {
@@ -53,7 +53,7 @@ export const AminoConverter = {
       distributeTo,
       coins,
       startTime,
-      numEpochsPaidOver
+      numEpochsPaidOver,
     }: MsgCreateGauge): AminoMsgCreateGauge["value"] => {
       return {
         is_perpetual: isPerpetual,
@@ -62,14 +62,14 @@ export const AminoConverter = {
           lock_query_type: distributeTo.lockQueryType,
           denom: distributeTo.denom,
           duration: (distributeTo.duration * 1_000_000_000).toString(),
-          timestamp: distributeTo.timestamp
+          timestamp: distributeTo.timestamp,
         },
-        coins: coins.map(el0 => ({
+        coins: coins.map((el0) => ({
           denom: el0.denom,
-          amount: el0.amount
+          amount: el0.amount,
         })),
         start_time: startTime,
-        num_epochs_paid_over: numEpochsPaidOver.toString()
+        num_epochs_paid_over: numEpochsPaidOver.toString(),
       };
     },
     fromAmino: ({
@@ -78,7 +78,7 @@ export const AminoConverter = {
       distribute_to,
       coins,
       start_time,
-      num_epochs_paid_over
+      num_epochs_paid_over,
     }: AminoMsgCreateGauge["value"]): MsgCreateGauge => {
       return {
         isPerpetual: is_perpetual,
@@ -87,49 +87,51 @@ export const AminoConverter = {
           lockQueryType: lockQueryTypeFromJSON(distribute_to.lock_query_type),
           denom: distribute_to.denom,
           duration: {
-            seconds: Long.fromNumber(Math.floor(parseInt(distribute_to.duration) / 1_000_000_000)),
-            nanos: parseInt(distribute_to.duration) % 1_000_000_000
+            seconds: Long.fromNumber(
+              Math.floor(parseInt(distribute_to.duration) / 1_000_000_000)
+            ),
+            nanos: parseInt(distribute_to.duration) % 1_000_000_000,
           },
-          timestamp: distribute_to.timestamp
+          timestamp: distribute_to.timestamp,
         },
-        coins: coins.map(el0 => ({
+        coins: coins.map((el0) => ({
           denom: el0.denom,
-          amount: el0.amount
+          amount: el0.amount,
         })),
         startTime: start_time,
-        numEpochsPaidOver: Long.fromString(num_epochs_paid_over)
+        numEpochsPaidOver: Long.fromString(num_epochs_paid_over),
       };
-    }
+    },
   },
   "/osmosis.incentives.MsgAddToGauge": {
     aminoType: "osmosis/incentives/add-to-gauge",
     toAmino: ({
       owner,
       gaugeId,
-      rewards
+      rewards,
     }: MsgAddToGauge): AminoMsgAddToGauge["value"] => {
       return {
         owner,
         gauge_id: gaugeId.toString(),
-        rewards: rewards.map(el0 => ({
+        rewards: rewards.map((el0) => ({
           denom: el0.denom,
-          amount: el0.amount
-        }))
+          amount: el0.amount,
+        })),
       };
     },
     fromAmino: ({
       owner,
       gauge_id,
-      rewards
+      rewards,
     }: AminoMsgAddToGauge["value"]): MsgAddToGauge => {
       return {
         owner,
         gaugeId: Long.fromString(gauge_id),
-        rewards: rewards.map(el0 => ({
+        rewards: rewards.map((el0) => ({
           denom: el0.denom,
-          amount: el0.amount
-        }))
+          amount: el0.amount,
+        })),
       };
-    }
-  }
+    },
+  },
 };

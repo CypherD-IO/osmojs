@@ -1,6 +1,6 @@
 import { Coin } from "../../base/v1beta1/coin";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial } from "@osmonauts/helpers";
+import { isSet, DeepPartial } from "@cypherd-io/osmonauts-helpers";
 
 /** GenesisState defines the crisis module's genesis state. */
 export interface GenesisState {
@@ -13,12 +13,15 @@ export interface GenesisState {
 
 function createBaseGenesisState(): GenesisState {
   return {
-    constantFee: undefined
+    constantFee: undefined,
   };
 }
 
 export const GenesisState = {
-  encode(message: GenesisState, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+  encode(
+    message: GenesisState,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
     if (message.constantFee !== undefined) {
       Coin.encode(message.constantFee, writer.uint32(26).fork()).ldelim();
     }
@@ -50,20 +53,27 @@ export const GenesisState = {
 
   fromJSON(object: any): GenesisState {
     return {
-      constantFee: isSet(object.constantFee) ? Coin.fromJSON(object.constantFee) : undefined
+      constantFee: isSet(object.constantFee)
+        ? Coin.fromJSON(object.constantFee)
+        : undefined,
     };
   },
 
   toJSON(message: GenesisState): unknown {
     const obj: any = {};
-    message.constantFee !== undefined && (obj.constantFee = message.constantFee ? Coin.toJSON(message.constantFee) : undefined);
+    message.constantFee !== undefined &&
+      (obj.constantFee = message.constantFee
+        ? Coin.toJSON(message.constantFee)
+        : undefined);
     return obj;
   },
 
   fromPartial(object: DeepPartial<GenesisState>): GenesisState {
     const message = createBaseGenesisState();
-    message.constantFee = object.constantFee !== undefined && object.constantFee !== null ? Coin.fromPartial(object.constantFee) : undefined;
+    message.constantFee =
+      object.constantFee !== undefined && object.constantFee !== null
+        ? Coin.fromPartial(object.constantFee)
+        : undefined;
     return message;
-  }
-
+  },
 };

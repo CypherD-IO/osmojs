@@ -2,7 +2,13 @@ import { PageRequest, PageResponse } from "../../../../cosmos/base/query/v1beta1
 import { Any } from "../../../../google/protobuf/any";
 import { Height, IdentifiedClientState, ConsensusStateWithHeight, Params } from "./client";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial, bytesFromBase64, base64FromBytes, Long } from "@osmonauts/helpers";
+import {
+  isSet,
+  DeepPartial,
+  bytesFromBase64,
+  base64FromBytes,
+  Long,
+} from "@cypherd-io/osmonauts-helpers";
 
 /**
  * QueryClientStateRequest is the request type for the Query/ClientState RPC

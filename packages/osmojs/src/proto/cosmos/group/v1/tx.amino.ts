@@ -1,7 +1,7 @@
 import { Member, VoteOption, voteOptionFromJSON } from "./types";
 import { Any } from "../../../google/protobuf/any";
-import { AminoMsg } from "@cosmjs/amino";
-import { Long } from "@osmonauts/helpers";
+import { AminoMsg } from "@cosmjs-rn/amino";
+import { Long } from "@cypherd-io/osmonauts-helpers";
 import { Timestamp } from "../../../google/protobuf/timestamp";
 import { execFromJSON, MsgCreateGroup, MsgUpdateGroupMembers, MsgUpdateGroupAdmin, MsgUpdateGroupMetadata, MsgCreateGroupPolicy, MsgCreateGroupWithPolicy, MsgUpdateGroupPolicyAdmin, MsgUpdateGroupPolicyDecisionPolicy, MsgUpdateGroupPolicyMetadata, MsgSubmitProposal, MsgWithdrawProposal, MsgVote, MsgExec, MsgLeaveGroup } from "./tx";
 export interface AminoMsgCreateGroup extends AminoMsg {

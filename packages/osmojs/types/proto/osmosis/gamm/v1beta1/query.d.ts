@@ -3,7 +3,7 @@ import { SwapAmountInRoute, SwapAmountOutRoute } from "./tx";
 import { Any } from "../../../google/protobuf/any";
 import { Coin } from "../../../cosmos/base/v1beta1/coin";
 import * as _m0 from "protobufjs/minimal";
-import { Long, DeepPartial } from "@osmonauts/helpers";
+import { Long, DeepPartial } from "@cypherd-io/osmonauts-helpers";
 /** =============================== Pool */
 export interface QueryPoolRequest {
     poolId: Long;

@@ -1,5 +1,13 @@
-import { OfflineSigner, GeneratedType, Registry } from "@cosmjs/proto-signing";
-import { defaultRegistryTypes, AminoTypes, SigningStargateClient } from "@cosmjs/stargate";
+import {
+  OfflineSigner,
+  GeneratedType,
+  Registry,
+} from "@cosmjs-rn/proto-signing";
+import {
+  defaultRegistryTypes,
+  AminoTypes,
+  SigningStargateClient,
+} from "@cosmjs-rn/stargate";
 import * as osmosisGammPoolmodelsBalancerTxRegistry from "./gamm/pool-models/balancer/tx.registry";
 import * as osmosisGammPoolmodelsStableswapTxRegistry from "./gamm/pool-models/stableswap/tx.registry";
 import * as osmosisGammV1beta1TxRegistry from "./gamm/v1beta1/tx.registry";
@@ -17,24 +25,38 @@ import * as osmosisTokenfactoryV1beta1TxAmino from "./tokenfactory/v1beta1/tx.am
 export const getSigningOsmosisClient = async ({
   rpcEndpoint,
   signer,
-  defaultTypes = defaultRegistryTypes
+  defaultTypes = defaultRegistryTypes,
 }: {
   rpcEndpoint: string;
   signer: OfflineSigner;
   defaultTypes?: ReadonlyArray<[string, GeneratedType]>;
 }) => {
-  const registry = new Registry([...defaultTypes, ...osmosisGammPoolmodelsBalancerTxRegistry.registry, ...osmosisGammPoolmodelsStableswapTxRegistry.registry, ...osmosisGammV1beta1TxRegistry.registry, ...osmosisIncentivesTxRegistry.registry, ...osmosisLockupTxRegistry.registry, ...osmosisSuperfluidTxRegistry.registry, ...osmosisTokenfactoryV1beta1TxRegistry.registry]);
-  const aminoTypes = new AminoTypes({ ...osmosisGammPoolmodelsBalancerTxAmino.AminoConverter,
+  const registry = new Registry([
+    ...defaultTypes,
+    ...osmosisGammPoolmodelsBalancerTxRegistry.registry,
+    ...osmosisGammPoolmodelsStableswapTxRegistry.registry,
+    ...osmosisGammV1beta1TxRegistry.registry,
+    ...osmosisIncentivesTxRegistry.registry,
+    ...osmosisLockupTxRegistry.registry,
+    ...osmosisSuperfluidTxRegistry.registry,
+    ...osmosisTokenfactoryV1beta1TxRegistry.registry,
+  ]);
+  const aminoTypes = new AminoTypes({
+    ...osmosisGammPoolmodelsBalancerTxAmino.AminoConverter,
     ...osmosisGammPoolmodelsStableswapTxAmino.AminoConverter,
     ...osmosisGammV1beta1TxAmino.AminoConverter,
     ...osmosisIncentivesTxAmino.AminoConverter,
     ...osmosisLockupTxAmino.AminoConverter,
     ...osmosisSuperfluidTxAmino.AminoConverter,
-    ...osmosisTokenfactoryV1beta1TxAmino.AminoConverter
+    ...osmosisTokenfactoryV1beta1TxAmino.AminoConverter,
   });
-  const client = await SigningStargateClient.connectWithSigner(rpcEndpoint, signer, {
-    registry,
-    aminoTypes
-  });
+  const client = await SigningStargateClient.connectWithSigner(
+    rpcEndpoint,
+    signer,
+    {
+      registry,
+      aminoTypes,
+    }
+  );
   return client;
 };

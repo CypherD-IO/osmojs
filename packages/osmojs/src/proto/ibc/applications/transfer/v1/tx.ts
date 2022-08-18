@@ -1,7 +1,7 @@
 import { Coin } from "../../../../cosmos/base/v1beta1/coin";
 import { Height } from "../../../core/client/v1/client";
 import * as _m0 from "protobufjs/minimal";
-import { Long, isSet, DeepPartial } from "@osmonauts/helpers";
+import { Long, isSet, DeepPartial } from "@cypherd-io/osmonauts-helpers";
 
 /**
  * MsgTransfer defines a msg to transfer fungible tokens (i.e Coins) between

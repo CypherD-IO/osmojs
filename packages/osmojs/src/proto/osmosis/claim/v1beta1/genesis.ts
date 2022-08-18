@@ -2,7 +2,7 @@ import { Coin } from "../../../cosmos/base/v1beta1/coin";
 import { Params } from "./params";
 import { ClaimRecord } from "./claim";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial } from "@osmonauts/helpers";
+import { isSet, DeepPartial } from "@cypherd-io/osmonauts-helpers";
 
 /** GenesisState defines the claim module's genesis state. */
 export interface GenesisState {

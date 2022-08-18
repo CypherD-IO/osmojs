@@ -1,6 +1,6 @@
 import { Grant } from "./authz";
 import { Any } from "../../../google/protobuf/any";
-import { GeneratedType, Registry } from "@cosmjs/proto-signing";
+import { GeneratedType, Registry } from "@cosmjs-rn/proto-signing";
 import { MsgGrant, MsgExec, MsgRevoke } from "./tx";
 export const registry: ReadonlyArray<[string, GeneratedType]> = [["/cosmos.authz.v1beta1.MsgGrant", MsgGrant], ["/cosmos.authz.v1beta1.MsgExec", MsgExec], ["/cosmos.authz.v1beta1.MsgRevoke", MsgRevoke]];
 export const load = (protoRegistry: Registry) => {

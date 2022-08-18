@@ -4,7 +4,7 @@ import { SuperfluidAssetType, SuperfluidAsset, OsmoEquivalentMultiplierRecord, S
 import { Coin } from "../../cosmos/base/v1beta1/coin";
 import { SyntheticLock } from "../lockup/lock";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial, isSet, Long } from "@osmonauts/helpers";
+import { DeepPartial, isSet, Long } from "@cypherd-io/osmonauts-helpers";
 export interface QueryParamsRequest {}
 export interface QueryParamsResponse {
   /** params defines the parameters of the module. */

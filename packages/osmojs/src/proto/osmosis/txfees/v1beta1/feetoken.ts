@@ -1,5 +1,5 @@
 import * as _m0 from "protobufjs/minimal";
-import { Long, isSet, DeepPartial } from "@osmonauts/helpers";
+import { Long, isSet, DeepPartial } from "@cypherd-io/osmonauts-helpers";
 
 /**
  * FeeToken is a struct that specifies a coin denom, and pool ID pair.

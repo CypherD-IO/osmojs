@@ -3,7 +3,13 @@ import { SignMode, signModeFromJSON, signModeToJSON } from "../signing/v1beta1/s
 import { CompactBitArray } from "../../crypto/multisig/v1beta1/multisig";
 import { Coin } from "../../base/v1beta1/coin";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, bytesFromBase64, base64FromBytes, DeepPartial, Long } from "@osmonauts/helpers";
+import {
+  isSet,
+  bytesFromBase64,
+  base64FromBytes,
+  DeepPartial,
+  Long,
+} from "@cypherd-io/osmonauts-helpers";
 
 /** Tx is the standard type used for broadcasting transactions. */
 export interface Tx {
@@ -80,7 +86,7 @@ export interface SignDoc {
 /**
  * SignDocDirectAux is the type used for generating sign bytes for
  * SIGN_MODE_DIRECT_AUX.
- * 
+ *
  * Since: cosmos-sdk 0.46
  */
 export interface SignDocDirectAux {
@@ -177,7 +183,7 @@ export interface AuthInfo {
 
   /**
    * Tip is the optional tip used for meta-transactions.
-   * 
+   *
    * Since: cosmos-sdk 0.46
    */
   tip: Tip;
@@ -272,7 +278,7 @@ export interface Fee {
 
 /**
  * Tip is the tip used for meta-transactions.
- * 
+ *
  * Since: cosmos-sdk 0.46
  */
 export interface Tip {
@@ -288,7 +294,7 @@ export interface Tip {
  * tipper) builds and sends to the fee payer (who will build and broadcast the
  * actual tx). AuxSignerData is not a valid tx in itself, and will be rejected
  * by the node if sent directly as-is.
- * 
+ *
  * Since: cosmos-sdk 0.46
  */
 export interface AuxSignerData {

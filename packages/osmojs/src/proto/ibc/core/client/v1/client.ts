@@ -1,7 +1,7 @@
 import { Any } from "../../../../google/protobuf/any";
 import { Plan } from "../../../../cosmos/upgrade/v1beta1/upgrade";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial, Long } from "@osmonauts/helpers";
+import { isSet, DeepPartial, Long } from "@cypherd-io/osmonauts-helpers";
 
 /**
  * IdentifiedClientState defines a client state with an additional client
@@ -86,7 +86,7 @@ export interface UpgradeProposal {
  * Height is a monotonically increasing data type
  * that can be compared against another Height for the purposes of updating and
  * freezing clients
- * 
+ *
  * Normally the RevisionHeight is incremented at each height while keeping
  * RevisionNumber the same. However some consensus algorithms may choose to
  * reset the height in certain conditions e.g. hard forks, state-machine

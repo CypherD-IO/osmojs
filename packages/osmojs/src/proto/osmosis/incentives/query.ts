@@ -3,7 +3,7 @@ import { Coin } from "../../cosmos/base/v1beta1/coin";
 import { Gauge } from "./gauge";
 import { Duration } from "../../google/protobuf/duration";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial, Long, isSet } from "@osmonauts/helpers";
+import { DeepPartial, Long, isSet } from "@cypherd-io/osmonauts-helpers";
 export interface ModuleToDistributeCoinsRequest {}
 export interface ModuleToDistributeCoinsResponse {
   coins: Coin[];

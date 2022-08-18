@@ -1,13 +1,26 @@
-import { Rpc } from "@osmonauts/helpers";
-import { MsgCreateStableswapPool, MsgCreateStableswapPoolResponse, MsgStableSwapAdjustScalingFactors, MsgStableSwapAdjustScalingFactorsResponse } from "./tx";
+import { Rpc } from "@cypherd-io/osmonauts-helpers";
+import {
+  MsgCreateStableswapPool,
+  MsgCreateStableswapPoolResponse,
+  MsgStableSwapAdjustScalingFactors,
+  MsgStableSwapAdjustScalingFactorsResponse,
+} from "./tx";
 /** Msg defines the RPC service */
 export interface Msg {
-    createStableswapPool(request: MsgCreateStableswapPool): Promise<MsgCreateStableswapPoolResponse>;
-    stableSwapAdjustScalingFactors(request: MsgStableSwapAdjustScalingFactors): Promise<MsgStableSwapAdjustScalingFactorsResponse>;
+  createStableswapPool(
+    request: MsgCreateStableswapPool
+  ): Promise<MsgCreateStableswapPoolResponse>;
+  stableSwapAdjustScalingFactors(
+    request: MsgStableSwapAdjustScalingFactors
+  ): Promise<MsgStableSwapAdjustScalingFactorsResponse>;
 }
 export declare class MsgClientImpl implements Msg {
-    private readonly rpc;
-    constructor(rpc: Rpc);
-    createStableswapPool(request: MsgCreateStableswapPool): Promise<MsgCreateStableswapPoolResponse>;
-    stableSwapAdjustScalingFactors(request: MsgStableSwapAdjustScalingFactors): Promise<MsgStableSwapAdjustScalingFactorsResponse>;
+  private readonly rpc;
+  constructor(rpc: Rpc);
+  createStableswapPool(
+    request: MsgCreateStableswapPool
+  ): Promise<MsgCreateStableswapPoolResponse>;
+  stableSwapAdjustScalingFactors(
+    request: MsgStableSwapAdjustScalingFactors
+  ): Promise<MsgStableSwapAdjustScalingFactorsResponse>;
 }

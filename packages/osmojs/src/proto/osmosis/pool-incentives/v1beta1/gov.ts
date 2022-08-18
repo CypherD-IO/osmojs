@@ -1,6 +1,6 @@
 import { DistrRecord } from "./incentives";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial } from "@osmonauts/helpers";
+import { isSet, DeepPartial } from "@cypherd-io/osmonauts-helpers";
 
 /**
  * ReplacePoolIncentivesProposal is a gov Content type for updating the pool

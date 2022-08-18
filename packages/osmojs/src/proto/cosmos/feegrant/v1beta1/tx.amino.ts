@@ -1,5 +1,5 @@
 import { Any } from "../../../google/protobuf/any";
-import { AminoMsg } from "@cosmjs/amino";
+import { AminoMsg } from "@cosmjs-rn/amino";
 import { MsgGrantAllowance, MsgRevokeAllowance } from "./tx";
 export interface AminoMsgGrantAllowance extends AminoMsg {
   type: "cosmos-sdk/MsgGrantAllowance";

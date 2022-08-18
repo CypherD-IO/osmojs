@@ -3,7 +3,14 @@ import { Coin } from "../../cosmos/base/v1beta1/coin";
 import { Timestamp } from "../../google/protobuf/timestamp";
 import { Duration } from "../../google/protobuf/duration";
 import * as _m0 from "protobufjs/minimal";
-import { toTimestamp, Long, fromTimestamp, isSet, fromJsonTimestamp, DeepPartial } from "@osmonauts/helpers";
+import {
+  toTimestamp,
+  Long,
+  fromTimestamp,
+  isSet,
+  fromJsonTimestamp,
+  DeepPartial,
+} from "@cypherd-io/osmonauts-helpers";
 export interface Gauge {
   /** unique ID of a Gauge */
   id: Long;

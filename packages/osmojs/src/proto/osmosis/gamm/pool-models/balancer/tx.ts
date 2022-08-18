@@ -1,6 +1,6 @@
 import { PoolParams, PoolAsset } from "./balancerPool";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial, Long } from "@osmonauts/helpers";
+import { isSet, DeepPartial, Long } from "@cypherd-io/osmonauts-helpers";
 
 /** ===================== MsgCreatePool */
 export interface MsgCreateBalancerPool {

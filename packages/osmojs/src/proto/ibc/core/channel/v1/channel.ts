@@ -1,6 +1,12 @@
 import { Height } from "../../client/v1/client";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial, Long, bytesFromBase64, base64FromBytes } from "@osmonauts/helpers";
+import {
+  isSet,
+  DeepPartial,
+  Long,
+  bytesFromBase64,
+  base64FromBytes,
+} from "@cypherd-io/osmonauts-helpers";
 
 /**
  * State defines if a channel is in one of the following states:

@@ -2,7 +2,14 @@ import { Timestamp } from "../../../../google/protobuf/timestamp";
 import { Duration } from "../../../../google/protobuf/duration";
 import { Coin } from "../../../../cosmos/base/v1beta1/coin";
 import * as _m0 from "protobufjs/minimal";
-import { toTimestamp, fromTimestamp, isSet, fromJsonTimestamp, DeepPartial, Long } from "@osmonauts/helpers";
+import {
+  toTimestamp,
+  fromTimestamp,
+  isSet,
+  fromJsonTimestamp,
+  DeepPartial,
+  Long,
+} from "@cypherd-io/osmonauts-helpers";
 
 /**
  * Parameters for changing the weights in a balancer pool smoothly from

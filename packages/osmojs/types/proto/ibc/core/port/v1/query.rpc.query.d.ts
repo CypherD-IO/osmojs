@@ -1,11 +1,11 @@
-import { Rpc } from "@osmonauts/helpers";
+import { Rpc } from "@cypherd-io/osmonauts-helpers";
 import { QueryAppVersionRequest, QueryAppVersionResponse } from "./query";
 /** Query defines the RPC service */
 export interface Query {
-    appVersion(request: QueryAppVersionRequest): Promise<QueryAppVersionResponse>;
+  appVersion(request: QueryAppVersionRequest): Promise<QueryAppVersionResponse>;
 }
 export declare class QueryClientImpl implements Query {
-    private readonly rpc;
-    constructor(rpc: Rpc);
-    appVersion(request: QueryAppVersionRequest): Promise<QueryAppVersionResponse>;
+  private readonly rpc;
+  constructor(rpc: Rpc);
+  appVersion(request: QueryAppVersionRequest): Promise<QueryAppVersionResponse>;
 }

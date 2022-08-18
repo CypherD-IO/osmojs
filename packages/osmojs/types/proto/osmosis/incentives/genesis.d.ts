@@ -2,7 +2,7 @@ import { Params } from "./params";
 import { Gauge } from "./gauge";
 import { Duration } from "../../google/protobuf/duration";
 import * as _m0 from "protobufjs/minimal";
-import { Long, DeepPartial } from "@osmonauts/helpers";
+import { Long, DeepPartial } from "@cypherd-io/osmonauts-helpers";
 /** GenesisState defines the incentives module's genesis state. */
 export interface GenesisState {
     /** params defines all the parameters of the module */

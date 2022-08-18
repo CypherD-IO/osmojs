@@ -1,6 +1,6 @@
 import { Minter, Params } from "./mint";
 import * as _m0 from "protobufjs/minimal";
-import { Long, isSet, DeepPartial } from "@osmonauts/helpers";
+import { Long, isSet, DeepPartial } from "@cypherd-io/osmonauts-helpers";
 
 /** GenesisState defines the mint module's genesis state. */
 export interface GenesisState {
@@ -18,12 +18,15 @@ function createBaseGenesisState(): GenesisState {
   return {
     minter: undefined,
     params: undefined,
-    halvenStartedEpoch: Long.ZERO
+    halvenStartedEpoch: Long.ZERO,
   };
 }
 
 export const GenesisState = {
-  encode(message: GenesisState, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+  encode(
+    message: GenesisState,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
     if (message.minter !== undefined) {
       Minter.encode(message.minter, writer.uint32(10).fork()).ldelim();
     }
@@ -57,7 +60,7 @@ export const GenesisState = {
           break;
 
         case 3:
-          message.halvenStartedEpoch = (reader.int64() as Long);
+          message.halvenStartedEpoch = reader.int64() as Long;
           break;
 
         default:
@@ -73,24 +76,40 @@ export const GenesisState = {
     return {
       minter: isSet(object.minter) ? Minter.fromJSON(object.minter) : undefined,
       params: isSet(object.params) ? Params.fromJSON(object.params) : undefined,
-      halvenStartedEpoch: isSet(object.halvenStartedEpoch) ? Long.fromString(object.halvenStartedEpoch) : Long.ZERO
+      halvenStartedEpoch: isSet(object.halvenStartedEpoch)
+        ? Long.fromString(object.halvenStartedEpoch)
+        : Long.ZERO,
     };
   },
 
   toJSON(message: GenesisState): unknown {
     const obj: any = {};
-    message.minter !== undefined && (obj.minter = message.minter ? Minter.toJSON(message.minter) : undefined);
-    message.params !== undefined && (obj.params = message.params ? Params.toJSON(message.params) : undefined);
-    message.halvenStartedEpoch !== undefined && (obj.halvenStartedEpoch = (message.halvenStartedEpoch || Long.ZERO).toString());
+    message.minter !== undefined &&
+      (obj.minter = message.minter ? Minter.toJSON(message.minter) : undefined);
+    message.params !== undefined &&
+      (obj.params = message.params ? Params.toJSON(message.params) : undefined);
+    message.halvenStartedEpoch !== undefined &&
+      (obj.halvenStartedEpoch = (
+        message.halvenStartedEpoch || Long.ZERO
+      ).toString());
     return obj;
   },
 
   fromPartial(object: DeepPartial<GenesisState>): GenesisState {
     const message = createBaseGenesisState();
-    message.minter = object.minter !== undefined && object.minter !== null ? Minter.fromPartial(object.minter) : undefined;
-    message.params = object.params !== undefined && object.params !== null ? Params.fromPartial(object.params) : undefined;
-    message.halvenStartedEpoch = object.halvenStartedEpoch !== undefined && object.halvenStartedEpoch !== null ? Long.fromValue(object.halvenStartedEpoch) : Long.ZERO;
+    message.minter =
+      object.minter !== undefined && object.minter !== null
+        ? Minter.fromPartial(object.minter)
+        : undefined;
+    message.params =
+      object.params !== undefined && object.params !== null
+        ? Params.fromPartial(object.params)
+        : undefined;
+    message.halvenStartedEpoch =
+      object.halvenStartedEpoch !== undefined &&
+      object.halvenStartedEpoch !== null
+        ? Long.fromValue(object.halvenStartedEpoch)
+        : Long.ZERO;
     return message;
-  }
-
+  },
 };

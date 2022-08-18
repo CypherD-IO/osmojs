@@ -1,6 +1,12 @@
 import { Any } from "../../../google/protobuf/any";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial, Long, bytesFromBase64, base64FromBytes } from "@osmonauts/helpers";
+import {
+  isSet,
+  DeepPartial,
+  Long,
+  bytesFromBase64,
+  base64FromBytes,
+} from "@cypherd-io/osmonauts-helpers";
 
 /** AccessType permission types */
 export enum AccessType {

@@ -1,6 +1,12 @@
 import { Params, Validator, Delegation, UnbondingDelegation, Redelegation } from "./staking";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, bytesFromBase64, base64FromBytes, DeepPartial, Long } from "@osmonauts/helpers";
+import {
+  isSet,
+  bytesFromBase64,
+  base64FromBytes,
+  DeepPartial,
+  Long,
+} from "@cypherd-io/osmonauts-helpers";
 
 /** GenesisState defines the staking module's genesis state. */
 export interface GenesisState {

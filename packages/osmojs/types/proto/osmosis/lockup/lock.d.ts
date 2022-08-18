@@ -1,7 +1,7 @@
 import { Duration } from "../../google/protobuf/duration";
 import { Coin } from "../../cosmos/base/v1beta1/coin";
 import * as _m0 from "protobufjs/minimal";
-import { Long, DeepPartial } from "@osmonauts/helpers";
+import { Long, DeepPartial } from "@cypherd-io/osmonauts-helpers";
 export declare enum LockQueryType {
     /** ByDuration - Queries for locks that are longer than a certain duration */
     ByDuration = 0,

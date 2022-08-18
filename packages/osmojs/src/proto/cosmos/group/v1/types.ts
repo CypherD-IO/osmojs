@@ -2,7 +2,14 @@ import { Timestamp } from "../../../google/protobuf/timestamp";
 import { Duration } from "../../../google/protobuf/duration";
 import { Any } from "../../../google/protobuf/any";
 import * as _m0 from "protobufjs/minimal";
-import { toTimestamp, fromTimestamp, isSet, fromJsonTimestamp, DeepPartial, Long } from "@osmonauts/helpers";
+import {
+  toTimestamp,
+  fromTimestamp,
+  isSet,
+  fromJsonTimestamp,
+  DeepPartial,
+  Long,
+} from "@cypherd-io/osmonauts-helpers";
 
 /** VoteOption enumerates the valid vote options for a given proposal. */
 export enum VoteOption {
@@ -316,7 +323,7 @@ export interface DecisionPolicyWindows {
    * `[ submission + min_execution_period ; submission + voting_period + max_execution_period]`
    * where max_execution_period is a app-specific config, defined in the keeper.
    * If not set, min_execution_period will default to 0.
-   * 
+   *
    * Please make sure to set a `min_execution_period` that is smaller than
    * `voting_period + max_execution_period`, or else the above execution window
    * is empty, meaning that all proposals created with this decision policy

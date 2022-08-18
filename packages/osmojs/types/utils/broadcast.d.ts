@@ -1,1 +1,1 @@
-export { signAndBroadcast } from '@osmonauts/helpers';
+export { signAndBroadcast } from "@cypherd-io/osmonauts-helpers";

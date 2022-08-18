@@ -2,11 +2,16 @@ import { PageRequest, PageResponse } from "../../base/query/v1beta1/pagination";
 import { Any } from "../../../google/protobuf/any";
 import { Params } from "./auth";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial, bytesFromBase64, base64FromBytes } from "@osmonauts/helpers";
+import {
+  isSet,
+  DeepPartial,
+  bytesFromBase64,
+  base64FromBytes,
+} from "@cypherd-io/osmonauts-helpers";
 
 /**
  * QueryAccountsRequest is the request type for the Query/Accounts RPC method.
- * 
+ *
  * Since: cosmos-sdk 0.43
  */
 export interface QueryAccountsRequest {
@@ -16,7 +21,7 @@ export interface QueryAccountsRequest {
 
 /**
  * QueryAccountsResponse is the response type for the Query/Accounts RPC method.
- * 
+ *
  * Since: cosmos-sdk 0.43
  */
 export interface QueryAccountsResponse {

@@ -3,7 +3,14 @@ import { Duration } from "../../google/protobuf/duration";
 import { Coin } from "../../cosmos/base/v1beta1/coin";
 import { PeriodLock, SyntheticLock } from "./lock";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial, isSet, toTimestamp, fromTimestamp, fromJsonTimestamp, Long } from "@osmonauts/helpers";
+import {
+  DeepPartial,
+  isSet,
+  toTimestamp,
+  fromTimestamp,
+  fromJsonTimestamp,
+  Long,
+} from "@cypherd-io/osmonauts-helpers";
 export interface ModuleBalanceRequest {}
 export interface ModuleBalanceResponse {
   coins: Coin[];

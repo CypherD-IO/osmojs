@@ -1,6 +1,6 @@
 import { PageRequest, PageResponse } from "../../base/query/v1beta1/pagination";
 import { Grant, GrantAuthorization } from "./authz";
-import { Rpc } from "@osmonauts/helpers";
+import { Rpc } from "@cypherd-io/osmonauts-helpers";
 import * as _m0 from "protobufjs/minimal";
 import { QueryGrantsRequest, QueryGrantsResponse, QueryGranterGrantsRequest, QueryGranterGrantsResponse, QueryGranteeGrantsRequest, QueryGranteeGrantsResponse } from "./query";
 
@@ -11,12 +11,12 @@ export interface Query {
 
   granterGrants(request: QueryGranterGrantsRequest): Promise<QueryGranterGrantsResponse>;
   /*GranterGrants returns list of `GrantAuthorization`, granted by granter.
-  
+
   Since: cosmos-sdk 0.46*/
 
   granteeGrants(request: QueryGranteeGrantsRequest): Promise<QueryGranteeGrantsResponse>;
   /*GranteeGrants returns a list of `GrantAuthorization` by grantee.
-  
+
   Since: cosmos-sdk 0.46*/
 
 }

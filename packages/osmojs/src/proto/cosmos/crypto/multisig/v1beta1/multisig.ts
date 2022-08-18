@@ -1,5 +1,10 @@
 import * as _m0 from "protobufjs/minimal";
-import { bytesFromBase64, base64FromBytes, DeepPartial, isSet } from "@osmonauts/helpers";
+import {
+  bytesFromBase64,
+  base64FromBytes,
+  DeepPartial,
+  isSet,
+} from "@cypherd-io/osmonauts-helpers";
 
 /**
  * MultiSignature wraps the signatures from a multisig.LegacyAminoPubKey.

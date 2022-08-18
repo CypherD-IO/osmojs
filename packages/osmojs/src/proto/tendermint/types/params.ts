@@ -1,6 +1,6 @@
 import { Duration } from "../../google/protobuf/duration";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial, Long } from "@osmonauts/helpers";
+import { isSet, DeepPartial, Long } from "@cypherd-io/osmonauts-helpers";
 
 /**
  * ConsensusParams contains consensus critical parameters that determine the
@@ -30,7 +30,7 @@ export interface BlockParams {
   /**
    * Minimum time increment between consecutive blocks (in milliseconds) If the
    * block header timestamp is ahead of the system clock, decrease this value.
-   * 
+   *
    * Not exposed to the application.
    */
   timeIotaMs: Long;
@@ -40,7 +40,7 @@ export interface BlockParams {
 export interface EvidenceParams {
   /**
    * Max age of evidence, in blocks.
-   * 
+   *
    * The basic formula for calculating this is: MaxAgeDuration / {average block
    * time}.
    */
@@ -48,7 +48,7 @@ export interface EvidenceParams {
 
   /**
    * Max age of evidence, in time.
-   * 
+   *
    * It should correspond with an app's "unbonding period" or other similar
    * mechanism for handling [Nothing-At-Stake
    * attacks](https://github.com/ethereum/wiki/wiki/Proof-of-Stake-FAQ#what-is-the-nothing-at-stake-problem-and-how-can-it-be-fixed).
@@ -78,7 +78,7 @@ export interface VersionParams {
 
 /**
  * HashedParams is a subset of ConsensusParams.
- * 
+ *
  * It is hashed into the Header.ConsensusHash.
  */
 export interface HashedParams {

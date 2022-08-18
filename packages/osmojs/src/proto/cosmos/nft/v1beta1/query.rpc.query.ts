@@ -1,8 +1,23 @@
 import { PageRequest, PageResponse } from "../../base/query/v1beta1/pagination";
 import { NFT, Class } from "./nft";
-import { Rpc } from "@osmonauts/helpers";
+import { Rpc } from "@cypherd-io/osmonauts-helpers";
 import * as _m0 from "protobufjs/minimal";
-import { QueryBalanceRequest, QueryBalanceResponse, QueryOwnerRequest, QueryOwnerResponse, QuerySupplyRequest, QuerySupplyResponse, QueryNFTsRequest, QueryNFTsResponse, QueryNFTRequest, QueryNFTResponse, QueryClassRequest, QueryClassResponse, QueryClassesRequest, QueryClassesResponse } from "./query";
+import {
+  QueryBalanceRequest,
+  QueryBalanceResponse,
+  QueryOwnerRequest,
+  QueryOwnerResponse,
+  QuerySupplyRequest,
+  QuerySupplyResponse,
+  QueryNFTsRequest,
+  QueryNFTsResponse,
+  QueryNFTRequest,
+  QueryNFTResponse,
+  QueryClassRequest,
+  QueryClassResponse,
+  QueryClassesRequest,
+  QueryClassesResponse,
+} from "./query";
 
 /** Query defines the RPC service */
 export interface Query {
@@ -27,7 +42,6 @@ export interface Query {
 
   classes(request: QueryClassesRequest): Promise<QueryClassesResponse>;
   /*Classes queries all NFT classes*/
-
 }
 export class QueryClientImpl implements Query {
   private readonly rpc: Rpc;
@@ -45,44 +59,69 @@ export class QueryClientImpl implements Query {
 
   balance(request: QueryBalanceRequest): Promise<QueryBalanceResponse> {
     const data = QueryBalanceRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.nft.v1beta1.Query", "Balance", data);
-    return promise.then(data => QueryBalanceResponse.decode(new _m0.Reader(data)));
+    const promise = this.rpc.request(
+      "cosmos.nft.v1beta1.Query",
+      "Balance",
+      data
+    );
+    return promise.then((data) =>
+      QueryBalanceResponse.decode(new _m0.Reader(data))
+    );
   }
 
   owner(request: QueryOwnerRequest): Promise<QueryOwnerResponse> {
     const data = QueryOwnerRequest.encode(request).finish();
     const promise = this.rpc.request("cosmos.nft.v1beta1.Query", "Owner", data);
-    return promise.then(data => QueryOwnerResponse.decode(new _m0.Reader(data)));
+    return promise.then((data) =>
+      QueryOwnerResponse.decode(new _m0.Reader(data))
+    );
   }
 
   supply(request: QuerySupplyRequest): Promise<QuerySupplyResponse> {
     const data = QuerySupplyRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.nft.v1beta1.Query", "Supply", data);
-    return promise.then(data => QuerySupplyResponse.decode(new _m0.Reader(data)));
+    const promise = this.rpc.request(
+      "cosmos.nft.v1beta1.Query",
+      "Supply",
+      data
+    );
+    return promise.then((data) =>
+      QuerySupplyResponse.decode(new _m0.Reader(data))
+    );
   }
 
   nFTs(request: QueryNFTsRequest): Promise<QueryNFTsResponse> {
     const data = QueryNFTsRequest.encode(request).finish();
     const promise = this.rpc.request("cosmos.nft.v1beta1.Query", "NFTs", data);
-    return promise.then(data => QueryNFTsResponse.decode(new _m0.Reader(data)));
+    return promise.then((data) =>
+      QueryNFTsResponse.decode(new _m0.Reader(data))
+    );
   }
 
   nFT(request: QueryNFTRequest): Promise<QueryNFTResponse> {
     const data = QueryNFTRequest.encode(request).finish();
     const promise = this.rpc.request("cosmos.nft.v1beta1.Query", "NFT", data);
-    return promise.then(data => QueryNFTResponse.decode(new _m0.Reader(data)));
+    return promise.then((data) =>
+      QueryNFTResponse.decode(new _m0.Reader(data))
+    );
   }
 
   class(request: QueryClassRequest): Promise<QueryClassResponse> {
     const data = QueryClassRequest.encode(request).finish();
     const promise = this.rpc.request("cosmos.nft.v1beta1.Query", "Class", data);
-    return promise.then(data => QueryClassResponse.decode(new _m0.Reader(data)));
+    return promise.then((data) =>
+      QueryClassResponse.decode(new _m0.Reader(data))
+    );
   }
 
   classes(request: QueryClassesRequest): Promise<QueryClassesResponse> {
     const data = QueryClassesRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.nft.v1beta1.Query", "Classes", data);
-    return promise.then(data => QueryClassesResponse.decode(new _m0.Reader(data)));
+    const promise = this.rpc.request(
+      "cosmos.nft.v1beta1.Query",
+      "Classes",
+      data
+    );
+    return promise.then((data) =>
+      QueryClassesResponse.decode(new _m0.Reader(data))
+    );
   }
-
 }

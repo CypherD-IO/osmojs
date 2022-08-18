@@ -1,70 +1,58 @@
-import { coin } from '@cosmjs/amino';
-import { AminoConverter } from '../../src/proto/osmosis/lockup/tx.amino';
-import { osmosis } from '../../src/proto';
-import Long from 'long';
+import { coin } from "@cosmjs-rn/amino";
+import { AminoConverter } from "../../src/proto/osmosis/lockup/tx.amino";
+import { osmosis } from "../../src/proto";
+import Long from "long";
 
-it('toJSON', () => {
+it("toJSON", () => {
   const msg = osmosis.lockup.MsgLockTokens.toJSON({
-    owner: 'osmo1RedactedAddress',
-    duration: '1209600',
+    owner: "osmo1RedactedAddress",
+    duration: "1209600",
     coins: [
       {
-        amount: '10236850525923652977',
-        denom: 'gamm/pool/3'
-      }
-    ]
+        amount: "10236850525923652977",
+        denom: "gamm/pool/3",
+      },
+    ],
   });
   // console.log(JSON.stringify(msg, null, 2));
   expect(msg).toMatchSnapshot();
 });
 
-xit('fromJSON', () => {
+xit("fromJSON", () => {
   const msg = osmosis.lockup.MsgLockTokens.fromJSON({
-    owner: 'osmo1RedactedAddress',
-    duration: '1209600',
+    owner: "osmo1RedactedAddress",
+    duration: "1209600",
     coins: [
       {
-        amount: '10236850525923652977',
-        denom: 'gamm/pool/3'
-      }
-    ]
+        amount: "10236850525923652977",
+        denom: "gamm/pool/3",
+      },
+    ],
   });
   // console.log(JSON.stringify(msg, null, 2));
   expect(msg).toMatchSnapshot();
 });
 
-xit('AminoConverter.MsgLockTokens', async () => {
-  const msg = AminoConverter['/osmosis.lockup.MsgLockTokens'].toAmino({
-    owner: 'osmo1RedactedAddress',
-    duration: '1209600',
+xit("AminoConverter.MsgLockTokens", async () => {
+  const msg = AminoConverter["/osmosis.lockup.MsgLockTokens"].toAmino({
+    owner: "osmo1RedactedAddress",
+    duration: "1209600",
     coins: [
       {
-        amount: '10236850525923652977',
-        denom: 'gamm/pool/3'
-      }
-    ]
+        amount: "10236850525923652977",
+        denom: "gamm/pool/3",
+      },
+    ],
   });
-  expect(
-    msg
-  ).toMatchSnapshot();
+  expect(msg).toMatchSnapshot();
 
-  const back = AminoConverter['/osmosis.lockup.MsgLockTokens'].fromAmino(
-    msg
-  );
+  const back = AminoConverter["/osmosis.lockup.MsgLockTokens"].fromAmino(msg);
 
-  expect(
-    back
-  ).toMatchSnapshot();
+  expect(back).toMatchSnapshot();
 
+  const final = AminoConverter["/osmosis.lockup.MsgLockTokens"].toAmino(back);
 
-  const final = AminoConverter['/osmosis.lockup.MsgLockTokens'].toAmino(
-    back
-  );
-
-  expect(
-    final
-  ).toMatchSnapshot();
+  expect(final).toMatchSnapshot();
 
   expect(final).toEqual(msg);
-
 });

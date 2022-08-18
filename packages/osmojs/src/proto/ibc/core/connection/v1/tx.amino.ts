@@ -1,8 +1,8 @@
 import { Counterparty, Version } from "./connection";
 import { Any } from "../../../../google/protobuf/any";
 import { Height } from "../../client/v1/client";
-import { AminoMsg } from "@cosmjs/amino";
-import { AminoHeight, Long, omitDefault } from "@osmonauts/helpers";
+import { AminoMsg } from "@cosmjs-rn/amino";
+import { AminoHeight, Long, omitDefault } from "@cypherd-io/osmonauts-helpers";
 import { MerklePrefix } from "../../commitment/v1/commitment";
 import { MsgConnectionOpenInit, MsgConnectionOpenTry, MsgConnectionOpenAck, MsgConnectionOpenConfirm } from "./tx";
 export interface AminoMsgConnectionOpenInit extends AminoMsg {

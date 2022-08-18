@@ -1,6 +1,6 @@
 import { Duration } from "../../../google/protobuf/duration";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial } from "@osmonauts/helpers";
+import { DeepPartial } from "@cypherd-io/osmonauts-helpers";
 /** Params defines the claim module's parameters. */
 export interface Params {
     airdropStartTime: Date;

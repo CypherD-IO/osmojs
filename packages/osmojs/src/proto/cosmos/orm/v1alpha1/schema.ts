@@ -1,5 +1,10 @@
 import * as _m0 from "protobufjs/minimal";
-import { isSet, bytesFromBase64, base64FromBytes, DeepPartial } from "@osmonauts/helpers";
+import {
+  isSet,
+  bytesFromBase64,
+  base64FromBytes,
+  DeepPartial,
+} from "@cypherd-io/osmonauts-helpers";
 
 /** StorageType */
 export enum StorageType {

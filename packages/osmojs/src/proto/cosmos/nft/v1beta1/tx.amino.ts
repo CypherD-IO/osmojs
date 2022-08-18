@@ -1,4 +1,4 @@
-import { AminoMsg } from "@cosmjs/amino";
+import { AminoMsg } from "@cosmjs-rn/amino";
 import { MsgSend } from "./tx";
 export interface AminoMsgSend extends AminoMsg {
   type: "cosmos-sdk/MsgNFTSend";
@@ -16,27 +16,27 @@ export const AminoConverter = {
       classId,
       id,
       sender,
-      receiver
+      receiver,
     }: MsgSend): AminoMsgSend["value"] => {
       return {
         class_id: classId,
         id,
         sender,
-        receiver
+        receiver,
       };
     },
     fromAmino: ({
       class_id,
       id,
       sender,
-      receiver
+      receiver,
     }: AminoMsgSend["value"]): MsgSend => {
       return {
         classId: class_id,
         id,
         sender,
-        receiver
+        receiver,
       };
-    }
-  }
+    },
+  },
 };

@@ -1,11 +1,12 @@
-import { coin } from "@cosmjs/proto-signing";
+import { coin } from "@cosmjs-rn/proto-signing";
 import { MsgLockTokens } from "../../../../src/proto/osmosis/lockup/tx";
-import Long from 'long';
-import {
-  AminoTypes,
-} from '@cosmjs/stargate';
+import Long from "long";
+import { AminoTypes } from "@cosmjs-rn/stargate";
 
-import { AminoMsgLockTokens, AminoConverter } from "../../../../src/proto/osmosis/lockup/tx.amino";
+import {
+  AminoMsgLockTokens,
+  AminoConverter,
+} from "../../../../src/proto/osmosis/lockup/tx.amino";
 
 describe("AminoTypes", () => {
   describe("toAmino", () => {
@@ -16,9 +17,9 @@ describe("AminoTypes", () => {
         coins: [
           {
             amount: "42302974777419323",
-            denom: "gamm/pool/1"
-          }
-        ]
+            denom: "gamm/pool/1",
+          },
+        ],
       };
       const aminoTypes = new AminoTypes({ ...AminoConverter });
       const aminoMsg = aminoTypes.toAmino({
@@ -33,9 +34,9 @@ describe("AminoTypes", () => {
           coins: [
             {
               amount: "42302974777419323",
-              denom: "gamm/pool/1"
-            }
-          ]
+              denom: "gamm/pool/1",
+            },
+          ],
         },
       };
       expect(aminoMsg).toEqual(expected);
@@ -52,9 +53,9 @@ describe("AminoTypes", () => {
           coins: [
             {
               amount: "42302974777419323",
-              denom: "gamm/pool/1"
-            }
-          ]
+              denom: "gamm/pool/1",
+            },
+          ],
         },
       };
       const msg = new AminoTypes({ ...AminoConverter }).fromAmino(aminoMsg);
@@ -64,9 +65,9 @@ describe("AminoTypes", () => {
         coins: [
           {
             amount: "42302974777419323",
-            denom: "gamm/pool/1"
-          }
-        ]
+            denom: "gamm/pool/1",
+          },
+        ],
       };
       expect(msg).toEqual({
         typeUrl: "/osmosis.lockup.MsgLockTokens",

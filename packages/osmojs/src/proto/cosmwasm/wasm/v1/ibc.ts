@@ -1,5 +1,11 @@
 import * as _m0 from "protobufjs/minimal";
-import { Long, isSet, bytesFromBase64, base64FromBytes, DeepPartial } from "@osmonauts/helpers";
+import {
+  Long,
+  isSet,
+  bytesFromBase64,
+  base64FromBytes,
+  DeepPartial,
+} from "@cypherd-io/osmonauts-helpers";
 
 /** MsgIBCSend */
 export interface MsgIBCSend {

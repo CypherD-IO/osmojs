@@ -1,6 +1,6 @@
 import { CapabilityOwners } from "./capability";
 import * as _m0 from "protobufjs/minimal";
-import { Long, isSet, DeepPartial } from "@osmonauts/helpers";
+import { Long, isSet, DeepPartial } from "@cypherd-io/osmonauts-helpers";
 
 /** GenesisOwners defines the capability owners with their corresponding index. */
 export interface GenesisOwners {

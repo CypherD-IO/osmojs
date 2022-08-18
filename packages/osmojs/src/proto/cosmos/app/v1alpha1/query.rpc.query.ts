@@ -1,5 +1,5 @@
 import { Config } from "./config";
-import { Rpc } from "@osmonauts/helpers";
+import { Rpc } from "@cypherd-io/osmonauts-helpers";
 import * as _m0 from "protobufjs/minimal";
 import { QueryConfigRequest, QueryConfigResponse } from "./query";
 
@@ -7,7 +7,6 @@ import { QueryConfigRequest, QueryConfigResponse } from "./query";
 export interface Query {
   config(request: QueryConfigRequest): Promise<QueryConfigResponse>;
   /*Config returns the current app config.*/
-
 }
 export class QueryClientImpl implements Query {
   private readonly rpc: Rpc;
@@ -19,8 +18,13 @@ export class QueryClientImpl implements Query {
 
   config(request: QueryConfigRequest): Promise<QueryConfigResponse> {
     const data = QueryConfigRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.app.v1alpha1.Query", "Config", data);
-    return promise.then(data => QueryConfigResponse.decode(new _m0.Reader(data)));
+    const promise = this.rpc.request(
+      "cosmos.app.v1alpha1.Query",
+      "Config",
+      data
+    );
+    return promise.then((data) =>
+      QueryConfigResponse.decode(new _m0.Reader(data))
+    );
   }
-
 }

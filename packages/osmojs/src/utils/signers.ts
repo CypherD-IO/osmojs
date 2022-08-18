@@ -1,1 +1,4 @@
-export { getOfflineSignerAmino, getOfflineSignerProto } from '@osmonauts/helpers';
+export {
+  getOfflineSignerAmino,
+  getOfflineSignerProto,
+} from "@cypherd-io/osmonauts-helpers";

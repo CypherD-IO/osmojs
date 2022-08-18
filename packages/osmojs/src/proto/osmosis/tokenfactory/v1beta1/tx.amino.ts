@@ -1,6 +1,6 @@
 import { Coin } from "../../../cosmos/base/v1beta1/coin";
-import { AminoMsg } from "@cosmjs/amino";
-import { Long } from "@osmonauts/helpers";
+import { AminoMsg } from "@cosmjs-rn/amino";
+import { Long } from "@cypherd-io/osmonauts-helpers";
 import { MsgCreateDenom, MsgMint, MsgBurn, MsgChangeAdmin } from "./tx";
 export interface AminoMsgCreateDenom extends AminoMsg {
   type: "osmosis/tokenfactory/create-denom";
@@ -42,100 +42,88 @@ export const AminoConverter = {
     aminoType: "osmosis/tokenfactory/create-denom",
     toAmino: ({
       sender,
-      subdenom
+      subdenom,
     }: MsgCreateDenom): AminoMsgCreateDenom["value"] => {
       return {
         sender,
-        subdenom
+        subdenom,
       };
     },
     fromAmino: ({
       sender,
-      subdenom
+      subdenom,
     }: AminoMsgCreateDenom["value"]): MsgCreateDenom => {
       return {
         sender,
-        subdenom
+        subdenom,
       };
-    }
+    },
   },
   "/osmosis.tokenfactory.v1beta1.MsgMint": {
     aminoType: "osmosis/tokenfactory/mint",
-    toAmino: ({
-      sender,
-      amount
-    }: MsgMint): AminoMsgMint["value"] => {
+    toAmino: ({ sender, amount }: MsgMint): AminoMsgMint["value"] => {
       return {
         sender,
         amount: {
           denom: amount.denom,
-          amount: Long.fromNumber(amount.amount).toString()
-        }
+          amount: Long.fromNumber(amount.amount).toString(),
+        },
       };
     },
-    fromAmino: ({
-      sender,
-      amount
-    }: AminoMsgMint["value"]): MsgMint => {
+    fromAmino: ({ sender, amount }: AminoMsgMint["value"]): MsgMint => {
       return {
         sender,
         amount: {
           denom: amount.denom,
-          amount: amount.amount
-        }
+          amount: amount.amount,
+        },
       };
-    }
+    },
   },
   "/osmosis.tokenfactory.v1beta1.MsgBurn": {
     aminoType: "osmosis/tokenfactory/burn",
-    toAmino: ({
-      sender,
-      amount
-    }: MsgBurn): AminoMsgBurn["value"] => {
+    toAmino: ({ sender, amount }: MsgBurn): AminoMsgBurn["value"] => {
       return {
         sender,
         amount: {
           denom: amount.denom,
-          amount: Long.fromNumber(amount.amount).toString()
-        }
+          amount: Long.fromNumber(amount.amount).toString(),
+        },
       };
     },
-    fromAmino: ({
-      sender,
-      amount
-    }: AminoMsgBurn["value"]): MsgBurn => {
+    fromAmino: ({ sender, amount }: AminoMsgBurn["value"]): MsgBurn => {
       return {
         sender,
         amount: {
           denom: amount.denom,
-          amount: amount.amount
-        }
+          amount: amount.amount,
+        },
       };
-    }
+    },
   },
   "/osmosis.tokenfactory.v1beta1.MsgChangeAdmin": {
     aminoType: "osmosis/tokenfactory/change-admin",
     toAmino: ({
       sender,
       denom,
-      newAdmin
+      newAdmin,
     }: MsgChangeAdmin): AminoMsgChangeAdmin["value"] => {
       return {
         sender,
         denom,
-        newAdmin
+        newAdmin,
       };
     },
     fromAmino: ({
       sender,
       denom,
-      newAdmin
+      newAdmin,
     }: AminoMsgChangeAdmin["value"]): MsgChangeAdmin => {
       return {
         sender,
         denom,
-        newAdmin
+        newAdmin,
       };
-    }
-  }
+    },
+  },
 };

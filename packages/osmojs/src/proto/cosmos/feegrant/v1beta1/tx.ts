@@ -1,6 +1,6 @@
 import { Any } from "../../../google/protobuf/any";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial } from "@osmonauts/helpers";
+import { isSet, DeepPartial } from "@cypherd-io/osmonauts-helpers";
 
 /**
  * MsgGrantAllowance adds permission for Grantee to spend up to Allowance
@@ -36,12 +36,15 @@ function createBaseMsgGrantAllowance(): MsgGrantAllowance {
   return {
     granter: "",
     grantee: "",
-    allowance: undefined
+    allowance: undefined,
   };
 }
 
 export const MsgGrantAllowance = {
-  encode(message: MsgGrantAllowance, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+  encode(
+    message: MsgGrantAllowance,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
     if (message.granter !== "") {
       writer.uint32(10).string(message.granter);
     }
@@ -91,7 +94,9 @@ export const MsgGrantAllowance = {
     return {
       granter: isSet(object.granter) ? String(object.granter) : "",
       grantee: isSet(object.grantee) ? String(object.grantee) : "",
-      allowance: isSet(object.allowance) ? Any.fromJSON(object.allowance) : undefined
+      allowance: isSet(object.allowance)
+        ? Any.fromJSON(object.allowance)
+        : undefined,
     };
   },
 
@@ -99,7 +104,10 @@ export const MsgGrantAllowance = {
     const obj: any = {};
     message.granter !== undefined && (obj.granter = message.granter);
     message.grantee !== undefined && (obj.grantee = message.grantee);
-    message.allowance !== undefined && (obj.allowance = message.allowance ? Any.toJSON(message.allowance) : undefined);
+    message.allowance !== undefined &&
+      (obj.allowance = message.allowance
+        ? Any.toJSON(message.allowance)
+        : undefined);
     return obj;
   },
 
@@ -107,10 +115,12 @@ export const MsgGrantAllowance = {
     const message = createBaseMsgGrantAllowance();
     message.granter = object.granter ?? "";
     message.grantee = object.grantee ?? "";
-    message.allowance = object.allowance !== undefined && object.allowance !== null ? Any.fromPartial(object.allowance) : undefined;
+    message.allowance =
+      object.allowance !== undefined && object.allowance !== null
+        ? Any.fromPartial(object.allowance)
+        : undefined;
     return message;
-  }
-
+  },
 };
 
 function createBaseMsgGrantAllowanceResponse(): MsgGrantAllowanceResponse {
@@ -118,11 +128,17 @@ function createBaseMsgGrantAllowanceResponse(): MsgGrantAllowanceResponse {
 }
 
 export const MsgGrantAllowanceResponse = {
-  encode(_: MsgGrantAllowanceResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+  encode(
+    _: MsgGrantAllowanceResponse,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
     return writer;
   },
 
-  decode(input: _m0.Reader | Uint8Array, length?: number): MsgGrantAllowanceResponse {
+  decode(
+    input: _m0.Reader | Uint8Array,
+    length?: number
+  ): MsgGrantAllowanceResponse {
     const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgGrantAllowanceResponse();
@@ -149,22 +165,26 @@ export const MsgGrantAllowanceResponse = {
     return obj;
   },
 
-  fromPartial(_: DeepPartial<MsgGrantAllowanceResponse>): MsgGrantAllowanceResponse {
+  fromPartial(
+    _: DeepPartial<MsgGrantAllowanceResponse>
+  ): MsgGrantAllowanceResponse {
     const message = createBaseMsgGrantAllowanceResponse();
     return message;
-  }
-
+  },
 };
 
 function createBaseMsgRevokeAllowance(): MsgRevokeAllowance {
   return {
     granter: "",
-    grantee: ""
+    grantee: "",
   };
 }
 
 export const MsgRevokeAllowance = {
-  encode(message: MsgRevokeAllowance, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+  encode(
+    message: MsgRevokeAllowance,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
     if (message.granter !== "") {
       writer.uint32(10).string(message.granter);
     }
@@ -205,7 +225,7 @@ export const MsgRevokeAllowance = {
   fromJSON(object: any): MsgRevokeAllowance {
     return {
       granter: isSet(object.granter) ? String(object.granter) : "",
-      grantee: isSet(object.grantee) ? String(object.grantee) : ""
+      grantee: isSet(object.grantee) ? String(object.grantee) : "",
     };
   },
 
@@ -221,8 +241,7 @@ export const MsgRevokeAllowance = {
     message.granter = object.granter ?? "";
     message.grantee = object.grantee ?? "";
     return message;
-  }
-
+  },
 };
 
 function createBaseMsgRevokeAllowanceResponse(): MsgRevokeAllowanceResponse {
@@ -230,11 +249,17 @@ function createBaseMsgRevokeAllowanceResponse(): MsgRevokeAllowanceResponse {
 }
 
 export const MsgRevokeAllowanceResponse = {
-  encode(_: MsgRevokeAllowanceResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+  encode(
+    _: MsgRevokeAllowanceResponse,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
     return writer;
   },
 
-  decode(input: _m0.Reader | Uint8Array, length?: number): MsgRevokeAllowanceResponse {
+  decode(
+    input: _m0.Reader | Uint8Array,
+    length?: number
+  ): MsgRevokeAllowanceResponse {
     const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgRevokeAllowanceResponse();
@@ -261,9 +286,10 @@ export const MsgRevokeAllowanceResponse = {
     return obj;
   },
 
-  fromPartial(_: DeepPartial<MsgRevokeAllowanceResponse>): MsgRevokeAllowanceResponse {
+  fromPartial(
+    _: DeepPartial<MsgRevokeAllowanceResponse>
+  ): MsgRevokeAllowanceResponse {
     const message = createBaseMsgRevokeAllowanceResponse();
     return message;
-  }
-
+  },
 };

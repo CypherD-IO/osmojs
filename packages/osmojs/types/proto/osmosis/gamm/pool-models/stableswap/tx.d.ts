@@ -1,7 +1,7 @@
 import { PoolParams } from "./stableswap_pool";
 import { Coin } from "../../../../cosmos/base/v1beta1/coin";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial, Long } from "@osmonauts/helpers";
+import { DeepPartial, Long } from "@cypherd-io/osmonauts-helpers";
 export interface MsgCreateStableswapPool {
     sender: string;
     poolParams: PoolParams;

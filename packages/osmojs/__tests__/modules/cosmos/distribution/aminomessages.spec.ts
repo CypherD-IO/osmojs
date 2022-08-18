@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { coins } from "@cosmjs/proto-signing";
+import { coins } from "@cosmjs-rn/proto-signing";
 import {
     MsgFundCommunityPool,
     MsgSetWithdrawAddress,
@@ -7,9 +7,7 @@ import {
     MsgWithdrawValidatorCommission,
 } from '../../../../src/proto/cosmos/distribution/v1beta1/tx';
 
-import {
-    AminoTypes,
-} from '@cosmjs/stargate';
+import { AminoTypes } from "@cosmjs-rn/stargate";
 
 import {
     AminoMsgFundCommunityPool,

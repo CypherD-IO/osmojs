@@ -1,7 +1,7 @@
 import { Params, Metadata } from "./bank";
 import { Coin } from "../../base/v1beta1/coin";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial } from "@osmonauts/helpers";
+import { DeepPartial } from "@cypherd-io/osmonauts-helpers";
 /** GenesisState defines the bank module's genesis state. */
 export interface GenesisState {
     /** params defines all the paramaters of the module. */

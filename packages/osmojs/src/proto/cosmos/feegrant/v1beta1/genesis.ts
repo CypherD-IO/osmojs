@@ -1,6 +1,6 @@
 import { Grant } from "./feegrant";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial } from "@osmonauts/helpers";
+import { DeepPartial } from "@cypherd-io/osmonauts-helpers";
 
 /** GenesisState contains a set of fee allowances, persisted from the store */
 export interface GenesisState {
@@ -9,12 +9,15 @@ export interface GenesisState {
 
 function createBaseGenesisState(): GenesisState {
   return {
-    allowances: []
+    allowances: [],
   };
 }
 
 export const GenesisState = {
-  encode(message: GenesisState, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+  encode(
+    message: GenesisState,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
     for (const v of message.allowances) {
       Grant.encode(v!, writer.uint32(10).fork()).ldelim();
     }
@@ -46,7 +49,9 @@ export const GenesisState = {
 
   fromJSON(object: any): GenesisState {
     return {
-      allowances: Array.isArray(object?.allowances) ? object.allowances.map((e: any) => Grant.fromJSON(e)) : []
+      allowances: Array.isArray(object?.allowances)
+        ? object.allowances.map((e: any) => Grant.fromJSON(e))
+        : [],
     };
   },
 
@@ -54,7 +59,9 @@ export const GenesisState = {
     const obj: any = {};
 
     if (message.allowances) {
-      obj.allowances = message.allowances.map(e => e ? Grant.toJSON(e) : undefined);
+      obj.allowances = message.allowances.map((e) =>
+        e ? Grant.toJSON(e) : undefined
+      );
     } else {
       obj.allowances = [];
     }
@@ -64,8 +71,8 @@ export const GenesisState = {
 
   fromPartial(object: DeepPartial<GenesisState>): GenesisState {
     const message = createBaseGenesisState();
-    message.allowances = object.allowances?.map(e => Grant.fromPartial(e)) || [];
+    message.allowances =
+      object.allowances?.map((e) => Grant.fromPartial(e)) || [];
     return message;
-  }
-
+  },
 };

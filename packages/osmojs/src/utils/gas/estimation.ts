@@ -1,8 +1,8 @@
 import {
-    SigningStargateClient,
-    calculateFee,
-    GasPrice
-} from '@cosmjs/stargate';
+  SigningStargateClient,
+  calculateFee,
+  GasPrice,
+} from "@cosmjs-rn/stargate";
 
 export const estimateOsmoFee = async (client: SigningStargateClient, address: string, msgs: any[], memo: string) => {
     const gasPrice = GasPrice.fromString('0.025uosmo');

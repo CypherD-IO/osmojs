@@ -1,7 +1,7 @@
 import { PageRequest, PageResponse } from "../../../cosmos/base/query/v1beta1/pagination";
 import { ContractInfo, ContractCodeHistoryEntry, Model } from "./types";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial, Long, bytesFromBase64, base64FromBytes } from "@osmonauts/helpers";
+import { isSet, DeepPartial, Long, bytesFromBase64, base64FromBytes } from "@cypherd-io/osmonauts-helpers";
 
 /**
  * QueryContractInfoRequest is the request type for the Query/ContractInfo RPC

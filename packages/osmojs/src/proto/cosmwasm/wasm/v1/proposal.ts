@@ -1,7 +1,13 @@
 import { AccessConfig } from "./types";
 import { Coin } from "../../../cosmos/base/v1beta1/coin";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, bytesFromBase64, base64FromBytes, DeepPartial, Long } from "@osmonauts/helpers";
+import {
+  isSet,
+  bytesFromBase64,
+  base64FromBytes,
+  DeepPartial,
+  Long,
+} from "@cypherd-io/osmonauts-helpers";
 
 /** StoreCodeProposal gov proposal content type to submit WASM code to the system */
 export interface StoreCodeProposal {
@@ -174,12 +180,15 @@ function createBaseStoreCodeProposal(): StoreCodeProposal {
     description: "",
     runAs: "",
     wasmByteCode: new Uint8Array(),
-    instantiatePermission: undefined
+    instantiatePermission: undefined,
   };
 }
 
 export const StoreCodeProposal = {
-  encode(message: StoreCodeProposal, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+  encode(
+    message: StoreCodeProposal,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
     if (message.title !== "") {
       writer.uint32(10).string(message.title);
     }
@@ -197,7 +206,10 @@ export const StoreCodeProposal = {
     }
 
     if (message.instantiatePermission !== undefined) {
-      AccessConfig.encode(message.instantiatePermission, writer.uint32(58).fork()).ldelim();
+      AccessConfig.encode(
+        message.instantiatePermission,
+        writer.uint32(58).fork()
+      ).ldelim();
     }
 
     return writer;
@@ -229,7 +241,10 @@ export const StoreCodeProposal = {
           break;
 
         case 7:
-          message.instantiatePermission = AccessConfig.decode(reader, reader.uint32());
+          message.instantiatePermission = AccessConfig.decode(
+            reader,
+            reader.uint32()
+          );
           break;
 
         default:
@@ -246,18 +261,31 @@ export const StoreCodeProposal = {
       title: isSet(object.title) ? String(object.title) : "",
       description: isSet(object.description) ? String(object.description) : "",
       runAs: isSet(object.runAs) ? String(object.runAs) : "",
-      wasmByteCode: isSet(object.wasmByteCode) ? bytesFromBase64(object.wasmByteCode) : new Uint8Array(),
-      instantiatePermission: isSet(object.instantiatePermission) ? AccessConfig.fromJSON(object.instantiatePermission) : undefined
+      wasmByteCode: isSet(object.wasmByteCode)
+        ? bytesFromBase64(object.wasmByteCode)
+        : new Uint8Array(),
+      instantiatePermission: isSet(object.instantiatePermission)
+        ? AccessConfig.fromJSON(object.instantiatePermission)
+        : undefined,
     };
   },
 
   toJSON(message: StoreCodeProposal): unknown {
     const obj: any = {};
     message.title !== undefined && (obj.title = message.title);
-    message.description !== undefined && (obj.description = message.description);
+    message.description !== undefined &&
+      (obj.description = message.description);
     message.runAs !== undefined && (obj.runAs = message.runAs);
-    message.wasmByteCode !== undefined && (obj.wasmByteCode = base64FromBytes(message.wasmByteCode !== undefined ? message.wasmByteCode : new Uint8Array()));
-    message.instantiatePermission !== undefined && (obj.instantiatePermission = message.instantiatePermission ? AccessConfig.toJSON(message.instantiatePermission) : undefined);
+    message.wasmByteCode !== undefined &&
+      (obj.wasmByteCode = base64FromBytes(
+        message.wasmByteCode !== undefined
+          ? message.wasmByteCode
+          : new Uint8Array()
+      ));
+    message.instantiatePermission !== undefined &&
+      (obj.instantiatePermission = message.instantiatePermission
+        ? AccessConfig.toJSON(message.instantiatePermission)
+        : undefined);
     return obj;
   },
 
@@ -267,10 +295,13 @@ export const StoreCodeProposal = {
     message.description = object.description ?? "";
     message.runAs = object.runAs ?? "";
     message.wasmByteCode = object.wasmByteCode ?? new Uint8Array();
-    message.instantiatePermission = object.instantiatePermission !== undefined && object.instantiatePermission !== null ? AccessConfig.fromPartial(object.instantiatePermission) : undefined;
+    message.instantiatePermission =
+      object.instantiatePermission !== undefined &&
+      object.instantiatePermission !== null
+        ? AccessConfig.fromPartial(object.instantiatePermission)
+        : undefined;
     return message;
-  }
-
+  },
 };
 
 function createBaseInstantiateContractProposal(): InstantiateContractProposal {
@@ -282,12 +313,15 @@ function createBaseInstantiateContractProposal(): InstantiateContractProposal {
     codeId: Long.UZERO,
     label: "",
     msg: new Uint8Array(),
-    funds: []
+    funds: [],
   };
 }
 
 export const InstantiateContractProposal = {
-  encode(message: InstantiateContractProposal, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+  encode(
+    message: InstantiateContractProposal,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
     if (message.title !== "") {
       writer.uint32(10).string(message.title);
     }
@@ -323,7 +357,10 @@ export const InstantiateContractProposal = {
     return writer;
   },
 
-  decode(input: _m0.Reader | Uint8Array, length?: number): InstantiateContractProposal {
+  decode(
+    input: _m0.Reader | Uint8Array,
+    length?: number
+  ): InstantiateContractProposal {
     const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseInstantiateContractProposal();
@@ -349,7 +386,7 @@ export const InstantiateContractProposal = {
           break;
 
         case 5:
-          message.codeId = (reader.uint64() as Long);
+          message.codeId = reader.uint64() as Long;
           break;
 
         case 6:
@@ -379,25 +416,34 @@ export const InstantiateContractProposal = {
       description: isSet(object.description) ? String(object.description) : "",
       runAs: isSet(object.runAs) ? String(object.runAs) : "",
       admin: isSet(object.admin) ? String(object.admin) : "",
-      codeId: isSet(object.codeId) ? Long.fromString(object.codeId) : Long.UZERO,
+      codeId: isSet(object.codeId)
+        ? Long.fromString(object.codeId)
+        : Long.UZERO,
       label: isSet(object.label) ? String(object.label) : "",
       msg: isSet(object.msg) ? bytesFromBase64(object.msg) : new Uint8Array(),
-      funds: Array.isArray(object?.funds) ? object.funds.map((e: any) => Coin.fromJSON(e)) : []
+      funds: Array.isArray(object?.funds)
+        ? object.funds.map((e: any) => Coin.fromJSON(e))
+        : [],
     };
   },
 
   toJSON(message: InstantiateContractProposal): unknown {
     const obj: any = {};
     message.title !== undefined && (obj.title = message.title);
-    message.description !== undefined && (obj.description = message.description);
+    message.description !== undefined &&
+      (obj.description = message.description);
     message.runAs !== undefined && (obj.runAs = message.runAs);
     message.admin !== undefined && (obj.admin = message.admin);
-    message.codeId !== undefined && (obj.codeId = (message.codeId || Long.UZERO).toString());
+    message.codeId !== undefined &&
+      (obj.codeId = (message.codeId || Long.UZERO).toString());
     message.label !== undefined && (obj.label = message.label);
-    message.msg !== undefined && (obj.msg = base64FromBytes(message.msg !== undefined ? message.msg : new Uint8Array()));
+    message.msg !== undefined &&
+      (obj.msg = base64FromBytes(
+        message.msg !== undefined ? message.msg : new Uint8Array()
+      ));
 
     if (message.funds) {
-      obj.funds = message.funds.map(e => e ? Coin.toJSON(e) : undefined);
+      obj.funds = message.funds.map((e) => (e ? Coin.toJSON(e) : undefined));
     } else {
       obj.funds = [];
     }
@@ -405,19 +451,23 @@ export const InstantiateContractProposal = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<InstantiateContractProposal>): InstantiateContractProposal {
+  fromPartial(
+    object: DeepPartial<InstantiateContractProposal>
+  ): InstantiateContractProposal {
     const message = createBaseInstantiateContractProposal();
     message.title = object.title ?? "";
     message.description = object.description ?? "";
     message.runAs = object.runAs ?? "";
     message.admin = object.admin ?? "";
-    message.codeId = object.codeId !== undefined && object.codeId !== null ? Long.fromValue(object.codeId) : Long.UZERO;
+    message.codeId =
+      object.codeId !== undefined && object.codeId !== null
+        ? Long.fromValue(object.codeId)
+        : Long.UZERO;
     message.label = object.label ?? "";
     message.msg = object.msg ?? new Uint8Array();
-    message.funds = object.funds?.map(e => Coin.fromPartial(e)) || [];
+    message.funds = object.funds?.map((e) => Coin.fromPartial(e)) || [];
     return message;
-  }
-
+  },
 };
 
 function createBaseMigrateContractProposal(): MigrateContractProposal {
@@ -426,12 +476,15 @@ function createBaseMigrateContractProposal(): MigrateContractProposal {
     description: "",
     contract: "",
     codeId: Long.UZERO,
-    msg: new Uint8Array()
+    msg: new Uint8Array(),
   };
 }
 
 export const MigrateContractProposal = {
-  encode(message: MigrateContractProposal, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+  encode(
+    message: MigrateContractProposal,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
     if (message.title !== "") {
       writer.uint32(10).string(message.title);
     }
@@ -455,7 +508,10 @@ export const MigrateContractProposal = {
     return writer;
   },
 
-  decode(input: _m0.Reader | Uint8Array, length?: number): MigrateContractProposal {
+  decode(
+    input: _m0.Reader | Uint8Array,
+    length?: number
+  ): MigrateContractProposal {
     const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMigrateContractProposal();
@@ -477,7 +533,7 @@ export const MigrateContractProposal = {
           break;
 
         case 5:
-          message.codeId = (reader.uint64() as Long);
+          message.codeId = reader.uint64() as Long;
           break;
 
         case 6:
@@ -498,31 +554,42 @@ export const MigrateContractProposal = {
       title: isSet(object.title) ? String(object.title) : "",
       description: isSet(object.description) ? String(object.description) : "",
       contract: isSet(object.contract) ? String(object.contract) : "",
-      codeId: isSet(object.codeId) ? Long.fromString(object.codeId) : Long.UZERO,
-      msg: isSet(object.msg) ? bytesFromBase64(object.msg) : new Uint8Array()
+      codeId: isSet(object.codeId)
+        ? Long.fromString(object.codeId)
+        : Long.UZERO,
+      msg: isSet(object.msg) ? bytesFromBase64(object.msg) : new Uint8Array(),
     };
   },
 
   toJSON(message: MigrateContractProposal): unknown {
     const obj: any = {};
     message.title !== undefined && (obj.title = message.title);
-    message.description !== undefined && (obj.description = message.description);
+    message.description !== undefined &&
+      (obj.description = message.description);
     message.contract !== undefined && (obj.contract = message.contract);
-    message.codeId !== undefined && (obj.codeId = (message.codeId || Long.UZERO).toString());
-    message.msg !== undefined && (obj.msg = base64FromBytes(message.msg !== undefined ? message.msg : new Uint8Array()));
+    message.codeId !== undefined &&
+      (obj.codeId = (message.codeId || Long.UZERO).toString());
+    message.msg !== undefined &&
+      (obj.msg = base64FromBytes(
+        message.msg !== undefined ? message.msg : new Uint8Array()
+      ));
     return obj;
   },
 
-  fromPartial(object: DeepPartial<MigrateContractProposal>): MigrateContractProposal {
+  fromPartial(
+    object: DeepPartial<MigrateContractProposal>
+  ): MigrateContractProposal {
     const message = createBaseMigrateContractProposal();
     message.title = object.title ?? "";
     message.description = object.description ?? "";
     message.contract = object.contract ?? "";
-    message.codeId = object.codeId !== undefined && object.codeId !== null ? Long.fromValue(object.codeId) : Long.UZERO;
+    message.codeId =
+      object.codeId !== undefined && object.codeId !== null
+        ? Long.fromValue(object.codeId)
+        : Long.UZERO;
     message.msg = object.msg ?? new Uint8Array();
     return message;
-  }
-
+  },
 };
 
 function createBaseSudoContractProposal(): SudoContractProposal {
@@ -530,12 +597,15 @@ function createBaseSudoContractProposal(): SudoContractProposal {
     title: "",
     description: "",
     contract: "",
-    msg: new Uint8Array()
+    msg: new Uint8Array(),
   };
 }
 
 export const SudoContractProposal = {
-  encode(message: SudoContractProposal, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+  encode(
+    message: SudoContractProposal,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
     if (message.title !== "") {
       writer.uint32(10).string(message.title);
     }
@@ -555,7 +625,10 @@ export const SudoContractProposal = {
     return writer;
   },
 
-  decode(input: _m0.Reader | Uint8Array, length?: number): SudoContractProposal {
+  decode(
+    input: _m0.Reader | Uint8Array,
+    length?: number
+  ): SudoContractProposal {
     const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseSudoContractProposal();
@@ -594,16 +667,20 @@ export const SudoContractProposal = {
       title: isSet(object.title) ? String(object.title) : "",
       description: isSet(object.description) ? String(object.description) : "",
       contract: isSet(object.contract) ? String(object.contract) : "",
-      msg: isSet(object.msg) ? bytesFromBase64(object.msg) : new Uint8Array()
+      msg: isSet(object.msg) ? bytesFromBase64(object.msg) : new Uint8Array(),
     };
   },
 
   toJSON(message: SudoContractProposal): unknown {
     const obj: any = {};
     message.title !== undefined && (obj.title = message.title);
-    message.description !== undefined && (obj.description = message.description);
+    message.description !== undefined &&
+      (obj.description = message.description);
     message.contract !== undefined && (obj.contract = message.contract);
-    message.msg !== undefined && (obj.msg = base64FromBytes(message.msg !== undefined ? message.msg : new Uint8Array()));
+    message.msg !== undefined &&
+      (obj.msg = base64FromBytes(
+        message.msg !== undefined ? message.msg : new Uint8Array()
+      ));
     return obj;
   },
 
@@ -614,8 +691,7 @@ export const SudoContractProposal = {
     message.contract = object.contract ?? "";
     message.msg = object.msg ?? new Uint8Array();
     return message;
-  }
-
+  },
 };
 
 function createBaseExecuteContractProposal(): ExecuteContractProposal {
@@ -625,12 +701,15 @@ function createBaseExecuteContractProposal(): ExecuteContractProposal {
     runAs: "",
     contract: "",
     msg: new Uint8Array(),
-    funds: []
+    funds: [],
   };
 }
 
 export const ExecuteContractProposal = {
-  encode(message: ExecuteContractProposal, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+  encode(
+    message: ExecuteContractProposal,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
     if (message.title !== "") {
       writer.uint32(10).string(message.title);
     }
@@ -658,7 +737,10 @@ export const ExecuteContractProposal = {
     return writer;
   },
 
-  decode(input: _m0.Reader | Uint8Array, length?: number): ExecuteContractProposal {
+  decode(
+    input: _m0.Reader | Uint8Array,
+    length?: number
+  ): ExecuteContractProposal {
     const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseExecuteContractProposal();
@@ -707,20 +789,26 @@ export const ExecuteContractProposal = {
       runAs: isSet(object.runAs) ? String(object.runAs) : "",
       contract: isSet(object.contract) ? String(object.contract) : "",
       msg: isSet(object.msg) ? bytesFromBase64(object.msg) : new Uint8Array(),
-      funds: Array.isArray(object?.funds) ? object.funds.map((e: any) => Coin.fromJSON(e)) : []
+      funds: Array.isArray(object?.funds)
+        ? object.funds.map((e: any) => Coin.fromJSON(e))
+        : [],
     };
   },
 
   toJSON(message: ExecuteContractProposal): unknown {
     const obj: any = {};
     message.title !== undefined && (obj.title = message.title);
-    message.description !== undefined && (obj.description = message.description);
+    message.description !== undefined &&
+      (obj.description = message.description);
     message.runAs !== undefined && (obj.runAs = message.runAs);
     message.contract !== undefined && (obj.contract = message.contract);
-    message.msg !== undefined && (obj.msg = base64FromBytes(message.msg !== undefined ? message.msg : new Uint8Array()));
+    message.msg !== undefined &&
+      (obj.msg = base64FromBytes(
+        message.msg !== undefined ? message.msg : new Uint8Array()
+      ));
 
     if (message.funds) {
-      obj.funds = message.funds.map(e => e ? Coin.toJSON(e) : undefined);
+      obj.funds = message.funds.map((e) => (e ? Coin.toJSON(e) : undefined));
     } else {
       obj.funds = [];
     }
@@ -728,17 +816,18 @@ export const ExecuteContractProposal = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<ExecuteContractProposal>): ExecuteContractProposal {
+  fromPartial(
+    object: DeepPartial<ExecuteContractProposal>
+  ): ExecuteContractProposal {
     const message = createBaseExecuteContractProposal();
     message.title = object.title ?? "";
     message.description = object.description ?? "";
     message.runAs = object.runAs ?? "";
     message.contract = object.contract ?? "";
     message.msg = object.msg ?? new Uint8Array();
-    message.funds = object.funds?.map(e => Coin.fromPartial(e)) || [];
+    message.funds = object.funds?.map((e) => Coin.fromPartial(e)) || [];
     return message;
-  }
-
+  },
 };
 
 function createBaseUpdateAdminProposal(): UpdateAdminProposal {
@@ -746,12 +835,15 @@ function createBaseUpdateAdminProposal(): UpdateAdminProposal {
     title: "",
     description: "",
     newAdmin: "",
-    contract: ""
+    contract: "",
   };
 }
 
 export const UpdateAdminProposal = {
-  encode(message: UpdateAdminProposal, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+  encode(
+    message: UpdateAdminProposal,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
     if (message.title !== "") {
       writer.uint32(10).string(message.title);
     }
@@ -810,14 +902,15 @@ export const UpdateAdminProposal = {
       title: isSet(object.title) ? String(object.title) : "",
       description: isSet(object.description) ? String(object.description) : "",
       newAdmin: isSet(object.newAdmin) ? String(object.newAdmin) : "",
-      contract: isSet(object.contract) ? String(object.contract) : ""
+      contract: isSet(object.contract) ? String(object.contract) : "",
     };
   },
 
   toJSON(message: UpdateAdminProposal): unknown {
     const obj: any = {};
     message.title !== undefined && (obj.title = message.title);
-    message.description !== undefined && (obj.description = message.description);
+    message.description !== undefined &&
+      (obj.description = message.description);
     message.newAdmin !== undefined && (obj.newAdmin = message.newAdmin);
     message.contract !== undefined && (obj.contract = message.contract);
     return obj;
@@ -830,20 +923,22 @@ export const UpdateAdminProposal = {
     message.newAdmin = object.newAdmin ?? "";
     message.contract = object.contract ?? "";
     return message;
-  }
-
+  },
 };
 
 function createBaseClearAdminProposal(): ClearAdminProposal {
   return {
     title: "",
     description: "",
-    contract: ""
+    contract: "",
   };
 }
 
 export const ClearAdminProposal = {
-  encode(message: ClearAdminProposal, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+  encode(
+    message: ClearAdminProposal,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
     if (message.title !== "") {
       writer.uint32(10).string(message.title);
     }
@@ -893,14 +988,15 @@ export const ClearAdminProposal = {
     return {
       title: isSet(object.title) ? String(object.title) : "",
       description: isSet(object.description) ? String(object.description) : "",
-      contract: isSet(object.contract) ? String(object.contract) : ""
+      contract: isSet(object.contract) ? String(object.contract) : "",
     };
   },
 
   toJSON(message: ClearAdminProposal): unknown {
     const obj: any = {};
     message.title !== undefined && (obj.title = message.title);
-    message.description !== undefined && (obj.description = message.description);
+    message.description !== undefined &&
+      (obj.description = message.description);
     message.contract !== undefined && (obj.contract = message.contract);
     return obj;
   },
@@ -911,20 +1007,22 @@ export const ClearAdminProposal = {
     message.description = object.description ?? "";
     message.contract = object.contract ?? "";
     return message;
-  }
-
+  },
 };
 
 function createBasePinCodesProposal(): PinCodesProposal {
   return {
     title: "",
     description: "",
-    codeIds: []
+    codeIds: [],
   };
 }
 
 export const PinCodesProposal = {
-  encode(message: PinCodesProposal, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+  encode(
+    message: PinCodesProposal,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
     if (message.title !== "") {
       writer.uint32(10).string(message.title);
     }
@@ -965,10 +1063,10 @@ export const PinCodesProposal = {
             const end2 = reader.uint32() + reader.pos;
 
             while (reader.pos < end2) {
-              message.codeIds.push((reader.uint64() as Long));
+              message.codeIds.push(reader.uint64() as Long);
             }
           } else {
-            message.codeIds.push((reader.uint64() as Long));
+            message.codeIds.push(reader.uint64() as Long);
           }
 
           break;
@@ -986,17 +1084,20 @@ export const PinCodesProposal = {
     return {
       title: isSet(object.title) ? String(object.title) : "",
       description: isSet(object.description) ? String(object.description) : "",
-      codeIds: Array.isArray(object?.codeIds) ? object.codeIds.map((e: any) => Long.fromString(e)) : []
+      codeIds: Array.isArray(object?.codeIds)
+        ? object.codeIds.map((e: any) => Long.fromString(e))
+        : [],
     };
   },
 
   toJSON(message: PinCodesProposal): unknown {
     const obj: any = {};
     message.title !== undefined && (obj.title = message.title);
-    message.description !== undefined && (obj.description = message.description);
+    message.description !== undefined &&
+      (obj.description = message.description);
 
     if (message.codeIds) {
-      obj.codeIds = message.codeIds.map(e => (e || Long.UZERO).toString());
+      obj.codeIds = message.codeIds.map((e) => (e || Long.UZERO).toString());
     } else {
       obj.codeIds = [];
     }
@@ -1008,22 +1109,24 @@ export const PinCodesProposal = {
     const message = createBasePinCodesProposal();
     message.title = object.title ?? "";
     message.description = object.description ?? "";
-    message.codeIds = object.codeIds?.map(e => Long.fromValue(e)) || [];
+    message.codeIds = object.codeIds?.map((e) => Long.fromValue(e)) || [];
     return message;
-  }
-
+  },
 };
 
 function createBaseUnpinCodesProposal(): UnpinCodesProposal {
   return {
     title: "",
     description: "",
-    codeIds: []
+    codeIds: [],
   };
 }
 
 export const UnpinCodesProposal = {
-  encode(message: UnpinCodesProposal, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+  encode(
+    message: UnpinCodesProposal,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
     if (message.title !== "") {
       writer.uint32(10).string(message.title);
     }
@@ -1064,10 +1167,10 @@ export const UnpinCodesProposal = {
             const end2 = reader.uint32() + reader.pos;
 
             while (reader.pos < end2) {
-              message.codeIds.push((reader.uint64() as Long));
+              message.codeIds.push(reader.uint64() as Long);
             }
           } else {
-            message.codeIds.push((reader.uint64() as Long));
+            message.codeIds.push(reader.uint64() as Long);
           }
 
           break;
@@ -1085,17 +1188,20 @@ export const UnpinCodesProposal = {
     return {
       title: isSet(object.title) ? String(object.title) : "",
       description: isSet(object.description) ? String(object.description) : "",
-      codeIds: Array.isArray(object?.codeIds) ? object.codeIds.map((e: any) => Long.fromString(e)) : []
+      codeIds: Array.isArray(object?.codeIds)
+        ? object.codeIds.map((e: any) => Long.fromString(e))
+        : [],
     };
   },
 
   toJSON(message: UnpinCodesProposal): unknown {
     const obj: any = {};
     message.title !== undefined && (obj.title = message.title);
-    message.description !== undefined && (obj.description = message.description);
+    message.description !== undefined &&
+      (obj.description = message.description);
 
     if (message.codeIds) {
-      obj.codeIds = message.codeIds.map(e => (e || Long.UZERO).toString());
+      obj.codeIds = message.codeIds.map((e) => (e || Long.UZERO).toString());
     } else {
       obj.codeIds = [];
     }
@@ -1107,8 +1213,7 @@ export const UnpinCodesProposal = {
     const message = createBaseUnpinCodesProposal();
     message.title = object.title ?? "";
     message.description = object.description ?? "";
-    message.codeIds = object.codeIds?.map(e => Long.fromValue(e)) || [];
+    message.codeIds = object.codeIds?.map((e) => Long.fromValue(e)) || [];
     return message;
-  }
-
+  },
 };
