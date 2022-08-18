@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.15](https://github.com/osmosis-labs/osmojs/compare/osmojs@0.10.14...osmojs@0.10.15) (2022-08-18)
+
+**Note:** Version bump only for package osmojs
+
+
+
+
+
 ## [0.10.14](https://github.com/osmosis-labs/osmojs/compare/osmojs@0.10.13...osmojs@0.10.14) (2022-08-18)
 
 **Note:** Version bump only for package osmojs
