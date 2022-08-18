@@ -36,11 +36,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/osmosis-labs/osmojs"
+    "url": "https://github.com/CypherD-IO/osmojs"
   },
   "keywords": [],
   "bugs": {
-    "url": "https://github.com/osmosis-labs/osmojs/issues"
+    "url": "https://github.com/CypherD-IO/osmojs"
   },
   "devDependencies": {
     "@babel/cli": "7.18.10",
@@ -97,5 +97,5 @@
     "long": "^5.2.0",
     "protobufjs": "^6.11.3"
   },
-  "gitHead": "fc2aacc53a1ebbca573a6c35f5741450dba3c8d2"
+  "gitHead": "74102a9518aca797313056fa355dded1eff8b6da"
 }
