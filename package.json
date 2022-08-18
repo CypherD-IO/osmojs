@@ -2,7 +2,7 @@
   "name": "osmojs-workspace",
   "version": "0.0.1",
   "publishConfig": {
-    "access": "restricted"
+    "access": "public"
   },
   "private": true,
   "scripts": {
