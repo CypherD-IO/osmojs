@@ -12,8 +12,7 @@
     "proto": "lerna run proto --stream --scope osmojs",
     "lint": "lerna run lint",
     "format": "lerna run format",
-    "test": "lerna run test --stream",
-    
+    "test": "lerna run test --stream"
   },
   "devDependencies": {
     "@babel/cli": "7.18.10",
