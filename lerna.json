@@ -10,7 +10,7 @@
     "packages/*"
   ],
   "version": "independent",
-  "registry": "https://registry.npmjs.org",
+  "registry": "https://npm.pkg.github.com/rishikhesh-cyD",
   "command": {
     "create": {
       "homepage": "https://github.com/osmosis-labs/telescope",

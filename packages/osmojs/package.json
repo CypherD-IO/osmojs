@@ -95,5 +95,6 @@
     "@osmonauts/lcd": "^0.3.10",
     "long": "^5.2.0",
     "protobufjs": "^6.11.3"
-  }
+  },
+  "gitHead": "04280d938b6f8c18bf75a64adf808a41c5996ef0"
 }
